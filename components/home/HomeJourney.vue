@@ -2,8 +2,8 @@
     <div>
        <HomeTitle title="Journey" desc="Lorem ipsum lorem ipsum lorem ipsum" /> 
        
-       <div class="row">
-         <div class="col-md-3">
+       <div class="row m-0">
+         <div class="col-md-3 p-0">
             <div class="box position-relative">
               <div class="overlay"></div>
               <img src="https://picsum.photos/id/1081/400" class="w-100">
@@ -56,7 +56,7 @@ export default {
   height: 90%;
   margin: 5%;
   opacity: 1;
-  transition: all 0.9s ease 0s;	
+  transition: all 0.9s ease 0s;
   
  .desc-content{
    border: 1px solid #d39138;
@@ -66,6 +66,12 @@ export default {
    background-color: #ffffff4f;
    h5{
      margin-top: 40%;
+     font-size: 13px;
+     color: #6e6e6f;
+   }
+   p{
+     color: #c4c4c4;
+     font-size: 11px;
    }
  }
    
