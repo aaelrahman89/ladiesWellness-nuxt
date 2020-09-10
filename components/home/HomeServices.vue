@@ -4,16 +4,14 @@
        
        <div>
                <swiper class="swiper" :options="swiperOption">
-    <swiper-slide>Slide 1</swiper-slide>
-    <swiper-slide>Slide 2</swiper-slide>
-    <swiper-slide>Slide 3</swiper-slide>
-    <swiper-slide>Slide 4</swiper-slide>
-    <swiper-slide>Slide 5</swiper-slide>
-    <swiper-slide>Slide 6</swiper-slide>
-    <swiper-slide>Slide 7</swiper-slide>
-    <swiper-slide>Slide 8</swiper-slide>
-    <swiper-slide>Slide 9</swiper-slide>
-    <div class="swiper-pagination test" slot="pagination"></div>
+    <swiper-slide><Service /></swiper-slide>
+    <swiper-slide><Service /></swiper-slide>
+    <swiper-slide><Service /></swiper-slide>
+    <swiper-slide><Service /></swiper-slide>
+    <swiper-slide><Service /></swiper-slide>
+    <swiper-slide><Service /></swiper-slide>
+    <swiper-slide><Service /></swiper-slide>
+    <swiper-slide><Service /></swiper-slide>
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
   </swiper>
@@ -23,6 +21,7 @@
 
 <script>
 import HomeTitle from './shared/HomeTitle';
+import Service from '@/components/Service';
 export default {
   name: 'HomeServices',
   title: 'Loop mode with multiple slides per group',
@@ -46,7 +45,8 @@ export default {
       }
     },
     components: {
-       HomeTitle
+       HomeTitle,
+       Service
     }
 }
 </script>
@@ -56,8 +56,11 @@ export default {
  .swiper-pagination-bullet{
   margin: 0 !important;
 }
-.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
-    right: 500px !important;
+.swiper-button-prev, .swiper-button-next {
+       color: #040404 !important;
+}
+.swiper-button-prev:after, .swiper-button-next:after {
+    font-size: 25px !important;
 }
 }
 

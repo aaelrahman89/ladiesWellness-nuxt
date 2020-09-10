@@ -1,7 +1,7 @@
 <template>
   <div>
-      <!-- <HomeSlider /> -->
-      <!-- <HomeServices /> -->
+      <HomeSlider />
+      <HomeServices />
       <HomeJourney />
   </div>
 </template>
