@@ -1,6 +1,4 @@
 
-import {en} from './locales/en';
-import {ar} from './locales/ar';
 
 export default {
   /*
@@ -62,14 +60,21 @@ export default {
     [
       'nuxt-i18n',
       {
-        locales: ['en', 'ar'],
+        locales: [
+          {
+            code: 'en',
+            file: 'en.js'
+          },
+          {
+            code: 'ar',
+            file: 'ar.js'
+          }
+        ],
+        lazy: true,
+        langDir: 'lang/',
         defaultLocale: 'en',
         vueI18n: {
-          fallbackLocale: 'en',
-          messages: {
-            en: en,
-            ar: ar
-          }
+          fallbackLocale: 'en'
         }
       }
     ]
