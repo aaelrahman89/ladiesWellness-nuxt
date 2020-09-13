@@ -23,21 +23,26 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'
+      }
     ]
   },
   /*
   ** Global CSS
   */
   css: [
-    
+    '@/assets/scss/style.scss',
+    '~/assets/fonts/fonts.css'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    {src: "~/plugins/vue-swiper.js", ssr: false}
+    { src: "~/plugins/vue-swiper.js", ssr: false }
   ],
   /*
   ** Auto import components
