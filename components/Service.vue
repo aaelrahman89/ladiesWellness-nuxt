@@ -7,12 +7,15 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 
 <style lang="scss" scoped>
 .service-box{
    border: 1px solid #e0e0e0;
+   img{
+     height: 530px;
+   }
 }
 </style>

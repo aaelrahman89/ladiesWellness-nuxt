@@ -1,8 +1,8 @@
 <template>
   <div>
-      <HomeSlider />
+      <!-- <HomeSlider /> -->
       <HomeServices />
-      <HomeJourney />
+      <!-- <HomeJourney /> -->
   </div>
 </template>
 
@@ -16,11 +16,11 @@ export default {
     HomeJourney
   },
   mounted(){
-    
+
   }
 }
 </script>
-  
+
 <style scoped>
 
 </style>
