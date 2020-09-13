@@ -1,6 +1,6 @@
 <template>
   <div>
-      <!-- <HomeSlider /> -->
+      <HomeSlider />
       <HomeServices />
       <!-- <HomeJourney /> -->
   </div>

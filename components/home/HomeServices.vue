@@ -1,17 +1,10 @@
 <template>
     <div class="container">
-       <HomeTitle title="Services" desc="Lorem ipsum lorem ipsum lorem ipsum" /> 
-       
+       <HomeTitle title="Services" desc="At vero eos et accusamus et iusto" />
+
        <div>
                <swiper class="swiper" :options="swiperOption">
-    <swiper-slide><Service /></swiper-slide>
-    <swiper-slide><Service /></swiper-slide>
-    <swiper-slide><Service /></swiper-slide>
-    <swiper-slide><Service /></swiper-slide>
-    <swiper-slide><Service /></swiper-slide>
-    <swiper-slide><Service /></swiper-slide>
-    <swiper-slide><Service /></swiper-slide>
-    <swiper-slide><Service /></swiper-slide>
+    <swiper-slide v-for="service in services" :key="service.id"><Service :service="service" /></swiper-slide>
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
   </swiper>
@@ -27,9 +20,15 @@ export default {
   title: 'Loop mode with multiple slides per group',
       data() {
       return {
+        services: [
+          {id: 1, image: 'https://picsum.photos/id/8/400', title: 'Summer Mirage', isNew: true},
+          {id: 2, image: 'https://picsum.photos/id/3/400', title: 'Summer Mirage', isNew: false},
+          {id: 3, image: 'https://picsum.photos/id/1/400', title: 'Summer Mirage', isNew: false},
+          {id: 4, image: 'https://picsum.photos/id/2/400', title: 'Summer Mirage', isNew: false}
+        ],
         swiperOption: {
           slidesPerView: 3,
-          spaceBetween: 30,
+          spaceBetween: 70,
           slidesPerGroup: 3,
           loop: true,
           autoplay: {delay: 4000},
@@ -40,7 +39,22 @@ export default {
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
-          }
+          },
+                breakpoints: {
+    // when window width is <= 320px
+    320: {
+      slidesPerView: 1
+    },
+    // when window width is <= 480px
+    480: {
+      slidesPerView: 1
+    },
+    // when window width is <= 640px
+    768: {
+      slidesPerView: 3,
+      spaceBetweenSlides: 70
+    }
+  }
         }
       }
     },
@@ -60,8 +74,15 @@ export default {
        color: #040404 !important;
 }
 .swiper-button-prev:after, .swiper-button-next:after {
-    font-size: 25px !important;
+    font-size: 40px !important;
+    font-weight: bold;
 }
+// .swiper-slide{
+//    @media screen and (max-width: 768px) {
+//         width: 100% !important;
+//          }
+// }
 }
+
 
 </style>
