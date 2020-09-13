@@ -9,20 +9,22 @@
     img-height="480"
   >
       <!-- Text slides with image -->
-      <b-carousel-slide caption="ORIGINAL STYLE" text="Nulla vitae elit libero, a pharetra augue mollis interdum Nulla vitae elit libero, a pharetra augue mollis interdum." img-src="https://picsum.photos/1024/480/?image=52" >
+      <b-carousel-slide caption="ORIGINAL STYLE" text="Veep writers and stars have incredibly responded to the news of an
+Pre-installed stitches are required by the method of email client, calendar." img-src="https://picsum.photos/1024/480/?image=52" >
       <div class="ttw_button_container">
 <a class="ttw_button">View More</a>
 </div>
       </b-carousel-slide>
 
       <!-- Text slides with image -->
-      <b-carousel-slide caption="ORIGINAL STYLE" text="Nulla vitae elit libero, a pharetra augue mollis interdum Nulla vitae elit libero, a pharetra augue mollis interdum." img-src="https://picsum.photos/1024/480/?image=55" >
+      <b-carousel-slide caption="ORIGINAL STYLE" text="Veep writers and stars have incredibly responded to the news of an
+Pre-installed stitches are required by the method of email client, calendar." img-src="https://picsum.photos/1024/480/?image=55" >
       <div class="ttw_button_container">
 <a class="ttw_button">View More</a>
 </div>
       </b-carousel-slide>
 
-    
+
 
     </b-carousel>
 
@@ -31,7 +33,7 @@
 
 <script>
   export default {
-    
+
   }
 </script>
 
@@ -40,7 +42,7 @@
     right: auto;
     bottom: 0px;
     left: 7%;
-    width: 50%;
+    width: 65%;
     text-align: left;
     top: 30%;
     color: black;
@@ -56,31 +58,51 @@
     top: unset;
          }
     h3{
-        font-size: 100px;
-        font-weight: normal;
+          font-size: 120px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: #000000;
           @media screen and (max-width: 768px) {
         font-size: 1.75rem;
          }
     }
     p{
+        font-size: 30px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  color: #000000;
           @media screen and (max-width: 768px) {
         display: none;
          }
     }
     .ttw_button_container {
     background: #fff;
-    padding: 4px 10px;
+    width: 261px;
+  height: 85px;
     margin: 4px 0;
     display: inline-block;
 }
-a.ttw_button{  
+a.ttw_button{
     background: #fff;
-    border: 1px solid #efd7b8;
-    padding: 6px 52px;
-    font-weight: bold;      
-    font-size: 19px;
+    border: solid 1px #d18c2f;
     display: inline-block;
-    color: #000;
+        margin: 10px;
+    width: 241px;
+    height: 65px;
+    text-align: center;
+    line-height: 65px;
+    font-size: 30px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: #000000;
 }
 }
 .carousel-indicators {
@@ -90,7 +112,7 @@ a.ttw_button{
         li{
         width: 12px;
         }
-    
+
 }
 .carousel-indicators .active {
     opacity: 1;
