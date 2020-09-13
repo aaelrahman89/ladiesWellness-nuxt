@@ -127,6 +127,7 @@ a.ttw_button{
     display: unset;
     margin-left: 2%;
     top: 35%;
+    width: 1%;
         li{
         width: 10px;
     height: 3px;

@@ -2,7 +2,7 @@
   <div>
       <HomeSlider />
       <HomeServices />
-      <!-- <HomeJourney /> -->
+      <HomeJourney />
   </div>
 </template>
 

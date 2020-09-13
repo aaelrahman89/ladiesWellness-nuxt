@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nuxt-link :to="localePath(`/services/${service.id}`)">
     <div class="service-box position-relative">
       <img :src="service.image" class="w-100" />
       <h5 class="text-capitalize text-center pt-3 pb-3">{{ service.title }}</h5>
@@ -8,6 +9,7 @@
         <div class="new text-white position-absolute" :style="$i18n.locale == 'ar'? 'left: auto; right: 30px': 'right: auto; left: 30px' ">{{ $t('new') }}</div>
       </div>
     </div>
+    </nuxt-link>
   </div>
 </template>
 
@@ -48,6 +50,11 @@ export default {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
   background-color: #ffb4cd;
   top: 60px;
+  }
+}
+a{
+  &:hover{
+    text-decoration: none;
   }
 }
 </style>
