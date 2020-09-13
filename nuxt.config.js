@@ -1,5 +1,3 @@
-
-
 export default {
   /*
   ** Nuxt rendering mode
@@ -15,6 +13,10 @@ export default {
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
   */
+  transition:'slide-fade',
+  router:{
+    linkExactActiveClass: 'exact-active-link',
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -25,8 +27,20 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
+        rel: "stylesheet",
+        href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css",
+        integrity: "sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN",
+        crossorigin: "anonymous"
+      },
+      {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'
+      }
+    ],
+    script:[
+      {
+        src: "https://kit.fontawesome.com/daad4d5851.js",
+        crossorigin: "anonymous"
       }
     ]
   },

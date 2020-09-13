@@ -1,3 +1,4 @@
+@import "header";
 body{
   font-family: 'Lato', sans-serif !important;
 }
@@ -5,4 +6,25 @@ body{
     @media screen and (min-width: 1200px) {
       max-width: 1920px;
    }
+}
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.active-link, .exact-active-link{
+  border-bottom: 2px solid $blackColor;
+}
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter, .slide-fade-leave-to /* .slide-fade-leave-active below version 2.1.8 */
+{
+  transform: translateX(10px);
+  opacity: 0;
 }
