@@ -2,7 +2,7 @@
   <div>
     <nuxt-link :to="localePath(`/services/${service.id}`)">
     <div class="service-box position-relative">
-      <img :src="service.image" class="w-100" />
+      <img :src="service.image" class="w-100" :alt="service.title" />
       <h5 class="text-capitalize text-center pt-3 pb-3">{{ service.title }}</h5>
       <div v-if="service.isNew">
         <div class="new-bg position-absolute"></div>
