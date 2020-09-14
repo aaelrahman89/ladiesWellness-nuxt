@@ -4,7 +4,7 @@
     <div class="testimonials">
       <img src="@/assets/images/test.png" alt="test" class="test-right">
       <swiper class="swiper" :options="swiperOption" :pagination="{ clickable: true }">
-        <swiper-slide v-for="test in 3">
+        <swiper-slide v-for="(index,test) in 3" :key="index">
           <div class="hold-client">
             <img src="@/assets/images/person.png" alt="profile-img" class="testimonials-img">
             <p class="test-paragraph">I don't work with a glam squad to get me together for the red carpet, I reall

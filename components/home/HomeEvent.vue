@@ -3,7 +3,7 @@
     <home-title title="Events" desc="At vero eos et accusamus et iusto"></home-title>
     <div class="hold-events">
       <swiper class="swiper" :options="swiperOption">
-        <swiper-slide v-for="event in 3">
+        <swiper-slide v-for="(index,event) in 3" :key="index">
           <Event></Event>
         </swiper-slide>
         <div class="swiper-button-prev" slot="button-prev"></div>
