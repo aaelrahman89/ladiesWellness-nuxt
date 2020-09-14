@@ -10,17 +10,17 @@
   >
       <!-- Text slides with image -->
       <b-carousel-slide caption="ORIGINAL STYLE" text="Veep writers and stars have incredibly responded to the news of an
-Pre-installed stitches are required by the method of email client, calendar." img-src="https://picsum.photos/1024/480/?image=52" >
+installed stitches are required by the method of email client, calendar." img-src="https://picsum.photos/1024/480/?image=52" >
       <div class="ttw_button_container">
-<a class="ttw_button">View More</a>
+<a class="ttw_button" role="button">View More</a>
 </div>
       </b-carousel-slide>
 
       <!-- Text slides with image -->
       <b-carousel-slide caption="ORIGINAL STYLE" text="Veep writers and stars have incredibly responded to the news of an
-Pre-installed stitches are required by the method of email client, calendar." img-src="https://picsum.photos/1024/480/?image=55" >
+installed stitches are required by the method of email client, calendar." img-src="https://picsum.photos/1024/480/?image=55" >
       <div class="ttw_button_container">
-<a class="ttw_button">View More</a>
+<a class="ttw_button" role="button">View More</a>
 </div>
       </b-carousel-slide>
 
@@ -46,6 +46,7 @@ Pre-installed stitches are required by the method of email client, calendar." im
     text-align: left;
     top: 30%;
     color: black;
+        z-index: 20;
      @media screen and (max-width: 768px) {
     right: 15%;
     left: 15%;
@@ -77,6 +78,7 @@ Pre-installed stitches are required by the method of email client, calendar." im
   line-height: 1.67;
   letter-spacing: normal;
   color: #000000;
+  margin-left: 70px;
           @media screen and (max-width: 768px) {
         display: none;
          }
@@ -87,6 +89,12 @@ Pre-installed stitches are required by the method of email client, calendar." im
   height: 85px;
     margin: 4px 0;
     display: inline-block;
+    margin-left: 90px;
+    @media screen and (max-width: 768px) {
+        width: 231px;
+  height: 55px;
+  margin-left: 0px;
+         }
 }
 a.ttw_button{
     background: #fff;
@@ -103,19 +111,34 @@ a.ttw_button{
   font-style: normal;
   letter-spacing: normal;
   color: #000000;
+      text-shadow: none;
+      @media screen and (max-width: 768px) {
+       width: 211px;
+    height: 35px;
+    font-size: 20px;
+    line-height: 35px;
+         }
+      &:hover{
+        text-decoration: none;
+      }
 }
 }
 .carousel-indicators {
     display: unset;
     margin-left: 2%;
     top: 35%;
+    width: 1%;
         li{
-        width: 12px;
+        width: 10px;
+    height: 3px;
+    background-color: #000;
         }
 
 }
 .carousel-indicators .active {
     opacity: 1;
-    width: 15px;
+    width: 20px;
+    height: 3px;
+    background-color: #d28d30;
 }
 </style>

@@ -1,4 +1,3 @@
 export default {
-  greeting: 'Welcome'
+  new: 'New'
 }
-  

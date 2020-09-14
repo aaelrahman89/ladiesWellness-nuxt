@@ -23,7 +23,7 @@
   .doctor{
     display: block;
     text-decoration: none;
-    border: 2px solid $mainColor;
+    border: 1px solid $mainColor;
     max-height: 400px;
     overflow: hidden;
     .doctor-img{
