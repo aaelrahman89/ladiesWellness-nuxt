@@ -3,6 +3,7 @@
     <TopHeader></TopHeader>
     <Header></Header>
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 <script>
   import TopHeader from "../components/shared/TopHeader";
   import Header from "../components/shared/Header";
+  import Footer from "../components/shared/Footer";
   export default {
     components: {Header, TopHeader}
   }

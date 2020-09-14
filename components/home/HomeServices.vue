@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
        <HomeTitle title="Services" desc="At vero eos et accusamus et iusto" />
 
        <div>
