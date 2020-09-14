@@ -49,7 +49,8 @@ export default {
   */
   css: [
     '@/assets/scss/style.scss',
-    '~/assets/fonts/fonts.css'
+    '~/assets/fonts/fonts.css',
+    "swiper/css/swiper.css",
   ],
   /*
   ** Plugins to load before mounting the App

@@ -5,8 +5,8 @@
        <div>
                <swiper class="swiper" :options="swiperOption">
     <swiper-slide v-for="service in services" :key="service.id"><Service :service="service" /></swiper-slide>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
+                 <div class="swiper-button-prev" slot="button-prev"></div>
+                 <div class="swiper-button-next" slot="button-next"></div>
   </swiper>
        </div>
     </div>

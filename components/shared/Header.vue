@@ -13,7 +13,7 @@
               <li><nuxt-link to="/">home</nuxt-link></li>
               <li><nuxt-link to="about">about us</nuxt-link></li>
               <li><nuxt-link to="journey">Your Journey</nuxt-link></li>
-              <li><nuxt-link to="home"><img src="@/assets/images/akw-logo.png" alt="akw-logo" class="logo"></nuxt-link></li>
+              <li><nuxt-link to="home"><img src="@/assets/images/logo.png" alt="akw-logo" class="logo"></nuxt-link></li>
               <li><nuxt-link to="services">services</nuxt-link></li>
               <li><nuxt-link to="doctors">doctors</nuxt-link></li>
               <li><nuxt-link to="blog">blog</nuxt-link></li>
