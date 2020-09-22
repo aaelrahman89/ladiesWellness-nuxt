@@ -4,13 +4,11 @@
     <div class="testimonials">
       <img src="@/assets/images/test.png" alt="test" class="test-right">
       <swiper class="swiper" :options="swiperOption" :pagination="{ clickable: true }">
-        <swiper-slide v-for="(index,test) in 3" :key="index">
+        <swiper-slide v-for="testimonial in testimonials" :key="testimonial.id">
           <div class="hold-client">
-            <img src="@/assets/images/person.png" alt="profile-img" class="testimonials-img">
-            <p class="test-paragraph">I don't work with a glam squad to get me together for the red carpet, I reall
-              y enjoy the time it takes to do it myself, to choose my clothes and do my own
-              makeup and my own hair.</p>
-            <span class="test-name">Marc Jacobs</span>
+            <img :src="testimonial.image" alt="profile-img" class="testimonials-img">
+            <p class="test-paragraph">{{testimonial.description}}</p>
+            <span class="test-name">{{testimonial.username}}</span>
           </div>
         </swiper-slide>
         <div class="swiper-button-prev" slot="button-prev"></div>
@@ -24,6 +22,7 @@
 <script>
   export default {
     name: "HomeTestimonials",
+    props:['testimonials'],
     data(){
       return{
         swiperOption: {
@@ -76,7 +75,7 @@
         border-radius: 50%;
         width: 188px;
         height: 188px;
-        object-fit: contain;
+        object-fit: cover;
         object-position: center;
       }
       .test-paragraph{
@@ -100,6 +99,27 @@
     .swiper-button-prev{
       color: $blackColor;
       left: 10%;
+    }
+  }
+  html:lang(ar){
+    .testimonials{
+      .test-right{
+        left: -8%;
+        right: auto;
+      }
+      .test-left{
+        left : auto;
+        right: -12%;
+      }
+      .swiper-button-next{
+        right: auto;
+        left: 10%;
+      }
+      .swiper-button-prev{
+        color: $blackColor;
+        right: 10%;
+        left: auto;
+      }
     }
   }
 </style>

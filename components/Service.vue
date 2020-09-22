@@ -1,13 +1,13 @@
 <template>
   <div>
-    <nuxt-link :to="localePath(`/services/${service.id}`)">
+    <nuxt-link :to="localePath(`/service/${service.slug}`)">
     <div class="service-box position-relative">
-      <img :src="service.image" class="w-100" :alt="service.title" />
-      <h5 class="text-capitalize text-center pt-3 pb-3">{{ service.title }}</h5>
-      <div v-if="service.isNew">
+      <img :src="service.photo" class="w-100" :alt="service.image_alt" :title="service.image_title" />
+      <h5 class="text-capitalize text-center pt-3 pb-3">{{ service.name }}</h5>
+      <!-- <div v-if="service.isNew">
         <div class="new-bg position-absolute"></div>
         <div class="new text-white position-absolute" :style="$i18n.locale == 'ar'? 'left: auto; right: 30px': 'right: auto; left: 30px' ">{{ $t('new') }}</div>
-      </div>
+      </div> -->
     </div>
     </nuxt-link>
   </div>
@@ -16,7 +16,7 @@
 <script>
 export default {
   name: "Service",
-  props: ["service"],
+  props: ["service"]
 };
 </script>
 
@@ -32,6 +32,9 @@ export default {
     font-style: normal;
     letter-spacing: normal;
     color: #000;
+  }
+  img{
+    height: 425px;
   }
   .new {
     font-size: 101px;

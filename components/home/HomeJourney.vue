@@ -3,103 +3,23 @@
        <HomeTitle title="Journey" desc="Lorem ipsum lorem ipsum lorem ipsum" /> 
        
        <div class="row m-0 position-relative">
-         <h1 class="journey-title text-white position-absolute">Journey</h1>
-         <div class="col-md-3 p-0">
-            <div class="box position-relative">
+         <div class="col-md-12 p-0 m-0 d-none d-sm-block">
+           <div class="journey-title"></div>
+         </div>
+
+         <div class="col-md-3 p-0" v-for="(index) in 8" :key="index">
+            <div class="box text-capitalize position-relative">
               <div class="overlay"></div>
-              <img src="https://picsum.photos/id/1081/400" class="w-100">
+              <img src="https://picsum.photos/id/1081/400" class="w-100" alt="journey">
               <div class="desc">
                 <div class="desc-content text-center">
-                  <h5>Lorem Ipsum</h5>
-              <p>lorem lorem lorem</p>
+                  <h5>Lip Liner</h5>
+              <p>Beauty Bodycare</p>
                 </div>
               </div>
             </div>
          </div>
-         <div class="col-md-3 p-0">
-            <div class="box position-relative">
-              <div class="overlay"></div>
-              <img src="https://picsum.photos/id/1081/400" class="w-100">
-              <div class="desc">
-                <div class="desc-content text-center">
-                  <h5>Lorem Ipsum</h5>
-              <p>lorem lorem lorem</p>
-                </div>
-              </div>
-            </div>
-         </div>
-         <div class="col-md-3 p-0">
-            <div class="box position-relative">
-              <div class="overlay"></div>
-              <img src="https://picsum.photos/id/1081/400" class="w-100">
-              <div class="desc">
-                <div class="desc-content text-center">
-                  <h5>Lorem Ipsum</h5>
-              <p>lorem lorem lorem</p>
-                </div>
-              </div>
-            </div>
-         </div>
-         <div class="col-md-3 p-0">
-            <div class="box position-relative">
-              <div class="overlay"></div>
-              <img src="https://picsum.photos/id/1081/400" class="w-100">
-              <div class="desc">
-                <div class="desc-content text-center">
-                  <h5>Lorem Ipsum</h5>
-              <p>lorem lorem lorem</p>
-                </div>
-              </div>
-            </div>
-         </div>
-         <div class="col-md-3 p-0">
-            <div class="box position-relative">
-              <div class="overlay"></div>
-              <img src="https://picsum.photos/id/1081/400" class="w-100">
-              <div class="desc">
-                <div class="desc-content text-center">
-                  <h5>Lorem Ipsum</h5>
-              <p>lorem lorem lorem</p>
-                </div>
-              </div>
-            </div>
-         </div>
-         <div class="col-md-3 p-0">
-            <div class="box position-relative">
-              <div class="overlay"></div>
-              <img src="https://picsum.photos/id/1081/400" class="w-100">
-              <div class="desc">
-                <div class="desc-content text-center">
-                  <h5>Lorem Ipsum</h5>
-              <p>lorem lorem lorem</p>
-                </div>
-              </div>
-            </div>
-         </div>
-         <div class="col-md-3 p-0">
-            <div class="box position-relative">
-              <div class="overlay"></div>
-              <img src="https://picsum.photos/id/1081/400" class="w-100">
-              <div class="desc">
-                <div class="desc-content text-center">
-                  <h5>Lorem Ipsum</h5>
-              <p>lorem lorem lorem</p>
-                </div>
-              </div>
-            </div>
-         </div>
-         <div class="col-md-3 p-0">
-            <div class="box position-relative">
-              <div class="overlay"></div>
-              <img src="https://picsum.photos/id/1081/400" class="w-100">
-              <div class="desc">
-                <div class="desc-content text-center">
-                  <h5>Lorem Ipsum</h5>
-              <p>lorem lorem lorem</p>
-                </div>
-              </div>
-            </div>
-         </div>
+        
        </div>
        
     </div>
@@ -116,6 +36,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.box{
+    &:hover{
+    z-index: 150;
+  }
+}
 .overlay{
   position: absolute;
   width: 100%;
@@ -126,6 +51,7 @@ export default {
     background-color: transparent;
     border: 20px solid #fcd6e5d9;
     transition: all 0.9s ease 0s;
+    z-index: 120;
   }
 }
 .desc{
@@ -151,20 +77,29 @@ export default {
    background-color: #ffffff4f;
    h5{
      margin-top: 40%;
-     font-size: 13px;
-     color: #6e6e6f;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
    }
    p{
-     color: #c4c4c4;
-     font-size: 11px;
+      font-size: 20px;
+  font-weight: 600;
+  color: #989898;
    }
  }
    
  }
  .journey-title{
-     font-size: 591px;
-     z-index: 99999;
-     font-family: "Conv_TuesdayNight-Regular", Sans-Serif;
+     z-index: 100;
+     background-image: url('~assets/images/journerytext-bg.png');
+    //  background-image: url('https://picsum.photos/200/300');
+     background-repeat: no-repeat;
+     height: 948px;
+     width: 100%;
+     background-size: cover;
+     position: absolute;
+     background-attachment: fixed;
+     pointer-events: none;
  }
 
 </style>

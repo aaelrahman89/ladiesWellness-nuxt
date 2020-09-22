@@ -1,9 +1,9 @@
 <template>
   <div class="clients">
     <swiper class="swiper" :options="swiperOption">
-      <swiper-slide v-for="client in cleints" :key="client.id">
+      <swiper-slide v-for="partner in partners" :key="partner.id">
         <div class="hold-client">
-          <img :src="client.img" alt="client">
+          <img :src="partner.logo" :alt="partner.image_alt" :title="partner.image_title">
         </div>
       </swiper-slide>
     </swiper>
@@ -13,6 +13,7 @@
 <script>
   export default {
     name: "Clients",
+    props:['partners'],
     data() {
       return {
         swiperOption: {
@@ -36,13 +37,13 @@
             }
           }
         },
-        cleints: [
-          {id: 1, img: require('@/assets/images/disney.png')},
-          {id: 2, img: require('@/assets/images/boss.png')},
-          {id: 3, img: require('@/assets/images/celine.png')},
-          {id: 4, img: require('@/assets/images/vimeo.png')},
-          {id: 5, img: require('@/assets/images/youtube.png')}
-        ]
+        // cleints: [
+        //   {id: 1, img: require('@/assets/images/disney.png')},
+        //   {id: 2, img: require('@/assets/images/boss.png')},
+        //   {id: 3, img: require('@/assets/images/celine.png')},
+        //   {id: 4, img: require('@/assets/images/vimeo.png')},
+        //   {id: 5, img: require('@/assets/images/youtube.png')}
+        // ]
       }
     }
   }

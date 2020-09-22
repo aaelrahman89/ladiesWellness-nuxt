@@ -10,7 +10,7 @@
         </div>
         <div class="col-lg-3 -col-12">
           <div class="profile">
-            <nuxt-link to="login">login <i class="far fa-user"></i></nuxt-link>
+            <nuxt-link :to="localePath('login')">login <i class="far fa-user"></i></nuxt-link>
           </div>
         </div>
       </div>
@@ -65,6 +65,9 @@ export default {
         justify-content: center;
         padding: .5rem 0;
       }
+    }
+    @media (max-width: 1080px) {
+      display: none;
     }
   }
 </style>

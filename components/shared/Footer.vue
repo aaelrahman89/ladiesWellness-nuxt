@@ -9,7 +9,7 @@
           <!--section end-->
 
           <!--section start-->
-         <FooterContact />
+         <FooterContact :footerContactsData="footerContacts" />
           <!--section end-->
 
           <!--section start-->
@@ -24,11 +24,11 @@
           <!--section end-->
 
           <!--section start-->
-          <FooterAbout />
+          <FooterAbout :footerAbout="footerAbout" />
           <!--section end-->
 
           <!--section start-->
-          <FooterSocialMedia />
+          <FooterSocialMedia :footerSocialMedia="footerSocial" />
           <!--section end-->
         </div>
         <div class="col-md-4">
@@ -63,11 +63,13 @@ import FooterLinks from './FooterComponents/FooterLinks';
 import FooterContact from './FooterComponents/FooterContact';
 import FooterStore from './FooterComponents/FooterStore';
 import FooterAbout from './FooterComponents/FooterAbout';
+import FooterSocialMedia from './FooterComponents/FooterSocialMedia';
 import FooterMap from './FooterComponents/FooterMap';
 export default {
     components: {
         CopyRight
-    }
+    },
+    props: ['footerSocial', 'footerContacts', 'footerAbout']
 };
 </script>
 
@@ -101,6 +103,9 @@ footer {
       font-size: 20px;
       font-weight: 600;
       color: #666666;
+        @media screen and (max-width: 768px) {
+    width: 100%;
+  }
       i {
         width: 45px;
         height: 59px;

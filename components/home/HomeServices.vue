@@ -4,7 +4,7 @@
 
        <div>
                <swiper class="swiper" :options="swiperOption">
-    <swiper-slide v-for="service in services" :key="service.id"><Service :service="service" /></swiper-slide>
+    <swiper-slide v-for="(service,index) in services.data" :key="index"><Service :service="service" /></swiper-slide>
                  <div class="swiper-button-prev" slot="button-prev"></div>
                  <div class="swiper-button-next" slot="button-next"></div>
   </swiper>
@@ -18,14 +18,9 @@ import Service from '@/components/Service';
 export default {
   name: 'HomeServices',
   title: 'Loop mode with multiple slides per group',
+  props: ['services'],
       data() {
       return {
-        services: [
-          {id: 1, image: 'https://picsum.photos/id/8/400', title: 'Summer Mirage', isNew: true},
-          {id: 2, image: 'https://picsum.photos/id/3/400', title: 'Summer Mirage', isNew: false},
-          {id: 3, image: 'https://picsum.photos/id/1/400', title: 'Summer Mirage', isNew: false},
-          {id: 4, image: 'https://picsum.photos/id/2/400', title: 'Summer Mirage', isNew: false}
-        ],
         swiperOption: {
           slidesPerView: 3,
           spaceBetween: 70,
@@ -61,7 +56,7 @@ export default {
     components: {
        HomeTitle,
        Service
-    }
+    },
 }
 </script>
 
@@ -77,12 +72,6 @@ export default {
     font-size: 40px !important;
     font-weight: bold;
 }
-// .swiper-slide{
-//    @media screen and (max-width: 768px) {
-//         width: 100% !important;
-//          }
-// }
 }
-
 
 </style>

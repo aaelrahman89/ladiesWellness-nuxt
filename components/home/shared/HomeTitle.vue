@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <h5 class="m-0 position-relative">{{ sig }}</h5>
-    <h3 class="text-black m-0 position-relative">{{ title }}</h3>
+    <h3 class="text-black m-0 position-relative text-capitalize">{{ title }}</h3>
     <p class="text-black m-0">{{ desc }}</p>
   </div>
 </template>
@@ -25,6 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$small: 768px;
 div {
   margin: 92px 0px 130px 0px;
 }
@@ -39,6 +40,10 @@ h5 {
   color: #d18c2f;
   top: 50px;
   z-index: 1;
+    @media screen and (max-width: $small) {
+    font-size: 2em;
+    top: 0px;
+  }
 }
 h3 {
   font-size: 100px;
@@ -47,6 +52,9 @@ h3 {
   font-style: normal;
   letter-spacing: normal;
   z-index: 2;
+  @media screen and (max-width: $small) {
+    font-size: 3em;
+  }
 }
 p {
   font-size: 30px;

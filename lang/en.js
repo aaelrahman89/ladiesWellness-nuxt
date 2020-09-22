@@ -1,3 +1,11 @@
 export default {
-  new: 'New'
+  new: 'New',
+  menu: {
+    home: 'Home',
+    about: 'About Us',
+    journey: 'Your Journey',
+    services: 'Services',
+    doctors: 'Doctors',
+    blog: 'Blog'
+  }
 }

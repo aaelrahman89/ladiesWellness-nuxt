@@ -1,45 +1,57 @@
 <template>
-    <nuxt-link class="doctor my-3" to="doctor-detail">
-      <div class="row">
-        <div class="col-5">
-          <img src="@/assets/images/make-up.jpg" alt="doctor" class="doctor-img">
-        </div>
-        <div class="col-7">
-          <h2 class="text-center doctor-name">doctor Name</h2>
-          <p class="doctor-description">At vero eos et accusamus et iusto</p>
-        </div>
+  <nuxt-link class="doctor my-3" :to="localePath(`/doctor/${doctor.slug}`)">
+    <div class="row">
+      <div class="col-5">
+        <img :src="doctor.photo" alt="doctor" class="doctor-img">
       </div>
-    </nuxt-link>
+      <div class="col-7">
+        <h2 class="text-center doctor-name">{{doctor.title}}</h2>
+        <p class="doctor-description">{{doctor.position}}</p>
+      </div>
+    </div>
+  </nuxt-link>
 </template>
 
 <script>
-    export default {
-        name: "Doctor"
-    }
+  export default {
+    name: "Doctor",
+    props:['doctor'],
+    data: () => ({}),
+  }
 </script>
 
 <style scoped lang="scss">
   @import "assets/scss/variable";
-  .doctor{
+  .doctor {
     display: block;
     text-decoration: none;
     border: 1px solid $mainColor;
     max-height: 400px;
     overflow: hidden;
-    .doctor-img{
+
+    .doctor-img {
       width: 100%;
       height: 185px;
       object-fit: cover;
       object-position: center;
     }
-    .doctor-name{
+
+    .doctor-name {
       font-size: 1rem;
       font-weight: 300;
       color: $blackColor;
       margin-top: 1rem;
     }
-    .doctor-description{
+
+    .doctor-description {
       color: #858585;
+    }
+  }
+  html:lang(ar){
+    .doctor {
+      .doctor-description {
+        text-align: right;
+      }
     }
   }
 </style>

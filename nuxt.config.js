@@ -17,6 +17,7 @@ export default {
   router:{
     linkExactActiveClass: 'exact-active-link',
   },
+  loading: {color: '#c7843db8', height: '5px'},
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -49,15 +50,16 @@ export default {
   */
   css: [
     '@/assets/scss/style.scss',
-    '~/assets/fonts/fonts.css',
-    "swiper/css/swiper.css",
+    '~/assets/fonts/fonts.css'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    { src: "~/plugins/vue-swiper.js", ssr: false }
+    { src: "~/plugins/vue-swiper.js", ssr: false },
+    { src: '~plugins/vue-full-calendar', ssr: false },
+    { src: '~plugins/vee-validate', ssr: false }
   ],
   /*
   ** Auto import components
@@ -80,6 +82,7 @@ export default {
     [
       'nuxt-i18n',
       {
+        strategy: 'prefix_except_default',
         locales: [
           {
             code: 'en',
@@ -93,6 +96,11 @@ export default {
         lazy: true,
         langDir: 'lang/',
         defaultLocale: 'en',
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieKey: 'i18n_redirected'
+          , alwaysRedirect: true,
+        },
         vueI18n: {
           fallbackLocale: 'en'
         }
@@ -101,13 +109,18 @@ export default {
   ],
   /*
   ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
+  ** See http://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+    baseURL: 'http://admin.alwstage.tk/api/',
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    transpile: [
+      "vee-validate/dist/rules"
+    ]
   }
 }

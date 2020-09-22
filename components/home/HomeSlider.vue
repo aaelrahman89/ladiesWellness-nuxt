@@ -1,28 +1,13 @@
 <template>
   <div>
-  <b-carousel
-    id="carousel-fade"
-    style="text-shadow: 0px 0px 2px #000"
-    fade
-    indicators
-    img-width="1024"
-    img-height="480"
-  >
+<b-carousel id="carousel-fade" style="text-shadow: 0px 0px 2px #000" fade indicators img-width="1024" img-height="480" >
       <!-- Text slides with image -->
-      <b-carousel-slide caption="ORIGINAL STYLE" text="Veep writers and stars have incredibly responded to the news of an
-installed stitches are required by the method of email client, calendar." img-src="https://picsum.photos/1024/480/?image=52" >
+      <b-carousel-slide v-for="(slider, index) in sliders.data" :key="index" :caption="slider.title" :text="slider.description" :img-src="slider.photo" >
       <div class="ttw_button_container">
-<a class="ttw_button" role="button">View More</a>
+<a :href="slider.link" class="ttw_button" role="button">View More</a>
 </div>
       </b-carousel-slide>
 
-      <!-- Text slides with image -->
-      <b-carousel-slide caption="ORIGINAL STYLE" text="Veep writers and stars have incredibly responded to the news of an
-installed stitches are required by the method of email client, calendar." img-src="https://picsum.photos/1024/480/?image=55" >
-      <div class="ttw_button_container">
-<a class="ttw_button" role="button">View More</a>
-</div>
-      </b-carousel-slide>
 
 
 
@@ -33,16 +18,18 @@ installed stitches are required by the method of email client, calendar." img-sr
 
 <script>
   export default {
-
+    props: ['sliders']
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
+::v-deep{
 .carousel-caption {
     right: auto;
     bottom: 0px;
     left: 7%;
-    width: 65%;
+    width: 80%;
     text-align: left;
     top: 30%;
     color: black;
@@ -141,4 +128,25 @@ a.ttw_button{
     height: 3px;
     background-color: #d28d30;
 }
+
+.carousel-indicators:lang(ar){
+    margin-left: auto;
+    right: 0;
+    margin-right: 2%;
+}
+
+.carousel-caption:lang(ar){
+    margin-left: auto;
+    right: 7%;
+    margin-right: auto;
+    margin-left: 2%;
+    left: auto;
+    text-align: right;
+}
+
+}
+
+
+
+
 </style>

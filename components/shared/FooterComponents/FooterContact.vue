@@ -3,19 +3,25 @@
         <section>
             <h3 class="text-capitalize">Contact</h3>
             <ul>
-              <li>Address : Seestrasse 21, Zurich</li>
+              <li>Address : {{footerContactsData.address}}</li>
               <li>
                 E-mail :
                 <a
-                  href="mailto:biagiottitheme@gmail.com"
+                  :href="`mailto:${footerContactsData.email}`"
                   class="text-white"
-                >biagiottitheme@gmail.com</a>
+                >{{footerContactsData.email}}</a>
               </li>
               <li>
                 Phone :
-                <a href="tel:+ 99 411 725 39 12" class="text-white">+ 99 411 725 39 12</a>
+                <a :href="`tel:${footerContactsData.phone}`" class="text-white">{{footerContactsData.phone}}</a>
               </li>
             </ul>
           </section>
     </div>
 </template>
+
+<script>
+export default {
+  props: ['footerContactsData']
+}
+</script>

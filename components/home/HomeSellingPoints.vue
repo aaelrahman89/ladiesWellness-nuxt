@@ -43,6 +43,12 @@
 </script>
 
 <style scoped lang="scss">
+  .selling-points{
+    margin-bottom: 5rem;
+    @media (max-width: 768px) {
+      margin-top: 3rem;
+    }
+  }
   .feature{
     display: block;
     height: 70px;
