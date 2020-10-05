@@ -1,24 +1,29 @@
 <template>
     <div>
-       <HomeTitle title="Journey" desc="Lorem ipsum lorem ipsum lorem ipsum" /> 
+       <HomeTitle :title="$t('menu.journey')" desc="Lorem ipsum lorem ipsum lorem ipsum" /> 
        
        <div class="row m-0 position-relative">
          <div class="col-md-12 p-0 m-0 d-none d-sm-block">
            <div class="journey-title"></div>
          </div>
 
-         <div class="col-md-3 p-0" v-for="(index) in 8" :key="index">
-            <div class="box text-capitalize position-relative">
+     
+         <div class="col-md-3 col-6 p-0" v-for="journey in homeJourney" :key="journey.id">
+           <nuxt-link :to="localePath(`/journey/${journey.slug}`)">
+                       <div class="box text-capitalize position-relative">
               <div class="overlay"></div>
-              <img src="https://picsum.photos/id/1081/400" class="w-100" alt="journey">
+              <img :src="journey.image" class="w-100" :alt="journey.image_alt" :title="journey.image_title">
               <div class="desc">
                 <div class="desc-content text-center">
-                  <h5>Lip Liner</h5>
-              <p>Beauty Bodycare</p>
+                  <h5>{{journey.title}}</h5>
+              <p class="d-none d-sm-block">{{journey.small_description}}</p>
                 </div>
               </div>
             </div>
+           </nuxt-link>
          </div>
+
+
         
        </div>
        
@@ -31,7 +36,8 @@ export default {
   name: 'HomeJourney',
     components: {
        HomeTitle
-    }
+    },
+    props: ['homeJourney']
 }
 </script>
 
@@ -77,9 +83,12 @@ export default {
    background-color: #ffffff4f;
    h5{
      margin-top: 40%;
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: 600;
   color: #000000;
+   @media screen and (max-width: 768px) { 
+    font-size: 1em;
+     }
    }
    p{
       font-size: 20px;
@@ -96,10 +105,15 @@ export default {
      background-repeat: no-repeat;
      height: 948px;
      width: 100%;
-     background-size: cover;
+    //  background-size: cover;
      position: absolute;
-     background-attachment: fixed;
      pointer-events: none;
+ }
+ img{
+   height: 400px;
+     @media screen and (max-width: 768px) {
+    height: auto;
+     }
  }
 
 </style>

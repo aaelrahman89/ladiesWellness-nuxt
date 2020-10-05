@@ -24,8 +24,8 @@ export default {
 .service-box {
   border: 1px solid #e0e0e0;
   h5 {
-    height: 144px;
-    line-height: 144px;
+    height: 136px;
+    line-height: 106px;
     font-size: 30px;
     font-weight: 300;
     font-stretch: normal;
@@ -34,7 +34,7 @@ export default {
     color: #000;
   }
   img{
-    height: 425px;
+    height: 300px;
   }
   .new {
     font-size: 101px;

@@ -2,7 +2,8 @@
     <div class="row">
              <div class="col-md-12 text-center">
                  <div class="copyright">
-            Copyright ©{{new Date().getFullYear()}} AndalusiaGroup. all rights reserved.
+            <span v-if="$i18n.locale =='en'">Copyright ©{{new Date().getFullYear()}} AndalusiaGroup. all rights reserved.</span>
+            <span v-if="$i18n.locale =='ar'">©{{new Date().getFullYear()}} جميع الحقوق محفوظة للأندلسية جروب</span>
     </div>
              </div>
          </div>

@@ -4,12 +4,9 @@
       <!-- Text slides with image -->
       <b-carousel-slide v-for="(slider, index) in sliders.data" :key="index" :caption="slider.title" :text="slider.description" :img-src="slider.photo" >
       <div class="ttw_button_container">
-<a :href="slider.link" class="ttw_button" role="button">View More</a>
+<a :href="slider.link" class="ttw_button" role="button">{{ $t('viewMore') }}</a>
 </div>
       </b-carousel-slide>
-
-
-
 
     </b-carousel>
 
@@ -29,7 +26,7 @@
     right: auto;
     bottom: 0px;
     left: 7%;
-    width: 80%;
+    width: 60%;
     text-align: left;
     top: 30%;
     color: black;
@@ -46,7 +43,7 @@
     top: unset;
          }
     h3{
-          font-size: 120px;
+          font-size: 100px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -58,15 +55,14 @@
          }
     }
     p{
-        font-size: 30px;
+        font-size: 25px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.67;
   letter-spacing: normal;
   color: #000000;
-  margin-left: 70px;
-          @media screen and (max-width: 768px) {
+          @media screen and (max-width: 1024px) {
         display: none;
          }
     }
@@ -76,7 +72,6 @@
   height: 85px;
     margin: 4px 0;
     display: inline-block;
-    margin-left: 90px;
     @media screen and (max-width: 768px) {
         width: 231px;
   height: 55px;

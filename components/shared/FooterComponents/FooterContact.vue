@@ -1,18 +1,18 @@
 <template>
     <div>
         <section>
-            <h3 class="text-capitalize">Contact</h3>
+            <h3 class="text-capitalize">{{ $t('contact.title') }}</h3>
             <ul>
-              <li>Address : {{footerContactsData.address}}</li>
+              <li>{{ $t('contact.address') }} : {{footerContactsData.address}}</li>
               <li>
-                E-mail :
+                {{ $t('email') }} :
                 <a
                   :href="`mailto:${footerContactsData.email}`"
                   class="text-white"
                 >{{footerContactsData.email}}</a>
               </li>
               <li>
-                Phone :
+                {{ $t('contact.phone') }} :
                 <a :href="`tel:${footerContactsData.phone}`" class="text-white">{{footerContactsData.phone}}</a>
               </li>
             </ul>

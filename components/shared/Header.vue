@@ -1,20 +1,19 @@
 <template>
-  <div>
+  <div id="header-lap">
     <div class="main-header">
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-2">
             <div class="hold-event">
-              <nuxt-link :to="'event'"><i class="fas fa-bell"></i> Event : <span class="event-name">zomba</span></nuxt-link>
+              <nuxt-link :to="localePath(`/events#${headerTopEvent.slug}`)"><i class="fas fa-bell"></i> {{$t('event')}} : <span class="event-name">{{ headerTopEvent.title }}</span></nuxt-link>
             </div>
           </div>
           <div class="col-lg-8">
             <div class="nav-bar">
               <ul>
-
-                <li><nuxt-link :to="localePath('/')">{{ $t('menu.home') }}</nuxt-link></li>
                 <li><nuxt-link :to="localePath('/about')">{{ $t('menu.about') }}</nuxt-link></li>
                 <li><nuxt-link :to="localePath('/journey')">{{ $t('menu.journey') }}</nuxt-link></li>
+                <li><nuxt-link :to="localePath('/book-now')">{{ $t('footer.bookNow') }}</nuxt-link></li>
                 <li><nuxt-link :to="localePath('/')"><img src="@/assets/images/logo.png" alt="akw-logo" class="logo"></nuxt-link></li>
                 <li class="submenu"><a href="#">{{ $t('menu.services') }}</a>
                   <ul>
@@ -28,11 +27,11 @@
           </div>
           <div class="col-lg-2">
             <div class="hold-options">
-              <div class="search ">
-                <i class="fas fa-search"></i>
+              <div class="search">
+                <i class="fas fa-search" @click="showSearchPageFunc"></i>
               </div>
               <div class="event-link separate">
-                <nuxt-link :to="'events'"><i class="far fa-calendar-alt"></i></nuxt-link>
+                <nuxt-link :to="localePath('/events')"><i class="far fa-calendar-alt"></i></nuxt-link>
               </div>
               <div class="lang">
                 <nuxt-link :to="switchLocalePath('en')" v-if="this.$i18n.locale === 'ar'">English</nuxt-link>
@@ -69,10 +68,10 @@
                   <li class="hold-two-options">
                     <ul class="two-options">
                       <li>
-                        <a href="#"><i class="far fa-user"></i> login</a>
+                        <i class="fas fa-search" @click="showSearchPageFunc"></i>
                       </li>
                       <li>
-                        <nuxt-link :to="localePath('event')" class="event-mobile"><i class="fas fa-bell"></i><span>Event :</span><span class="event-name">zomba</span></nuxt-link>
+                        <nuxt-link :to="localePath(`/events#${headerTopEvent.slug}`)" class="event-mobile"><i class="fas fa-bell"></i><span>Event :</span><span class="event-name">{{ headerTopEvent.title }}</span></nuxt-link>
                       </li>
                     </ul>
                   </li>
@@ -117,16 +116,45 @@ export default {
   name: 'Header',
   data(){
     return{
-      showSlide: false
+      showSlide: false,
     }
   },
-  props: ['HeaderServices']
+  methods:{
+    showSearchPageFunc(){
+      this.showSlide = false;
+      this.$emit('showSearch',true);
+    }
+  },
+  props: ['HeaderServices', 'headerTopEvent'],
+  mounted() {
+    window.addEventListener('scroll',function(){
+      document.getElementById('header-lap');
+      if(window.scrollY > 100){
+        document.getElementById('header-lap').classList.add('fixedHeader')
+      }
+      else{
+        document.getElementById('header-lap').classList.remove('fixedHeader')
+      }
+    })
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 @import "assets/scss/variable";
 /* Styling the sub menu */
+.fixedHeader{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+  background: #fff;
+  -webkit-box-shadow: 2px 11px 14px -13px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 11px 14px -13px rgba(0,0,0,0.75);
+  box-shadow: 2px 11px 14px -13px rgba(0,0,0,0.75);
+  transition: box-shadow ease-in-out .3s;
+}
 .submenu {
   position: relative;
 }
@@ -173,9 +201,21 @@ export default {
 .submenu:hover ul {
   display: block;
 }
+.search{
+  .fa-search{
+    cursor: pointer;
+  }
+}
+.lang{
+  font-family: 'Cairo', sans-serif;
+}
 
-
+.submenu li a:lang(ar){
+  text-align: right;
+  font-family: 'Cairo', sans-serif;
+}
   .main-header{
+    transition: all ease-in-out .3s;
     @media (max-width: 1080px) {
       display: none;
     }
@@ -270,6 +310,9 @@ export default {
           }
         }
         .two-options{
+          .fa-search{
+            color: #c7843d;
+          }
           .fa-user{
             margin-right: .3rem;
           }

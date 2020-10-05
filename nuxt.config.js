@@ -13,11 +13,11 @@ export default {
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
   */
-  transition:'slide-fade',
-  router:{
-    linkExactActiveClass: 'exact-active-link',
+  transition: 'slide-fade',
+  router: {
+    linkExactActiveClass: 'exact-active-link'
   },
-  loading: {color: '#c7843db8', height: '5px'},
+  loading: { color: '#c7843db8', height: '3px' },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -26,7 +26,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       {
         rel: "stylesheet",
         href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css",
@@ -36,13 +36,17 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Cairo&display=swap'
       }
     ],
-    script:[
+    script: [
       {
         src: "https://kit.fontawesome.com/daad4d5851.js",
         crossorigin: "anonymous"
-      }
+      },
     ]
   },
   /*
@@ -58,7 +62,7 @@ export default {
   */
   plugins: [
     { src: "~/plugins/vue-swiper.js", ssr: false },
-    { src: '~plugins/vue-full-calendar', ssr: false },
+    { src: '~plugins/vue-full-calendar', ssr: false, mode: 'client' },
     { src: '~plugins/vee-validate', ssr: false }
   ],
   /*
@@ -112,7 +116,11 @@ export default {
   ** See http://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'http://admin.alwstage.tk/api/',
+    baseURL: 'http://admin.alwstage.tk/',
+    proxy: true
+  },
+  proxy: {
+    '/api/': 'http://admin.alwstage.tk/'
   },
   /*
   ** Build configuration

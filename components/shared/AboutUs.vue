@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-6 col-12 border description">
-          <h1 class="about-heading">about us</h1>
+          <h1 class="about-heading">{{ $t('aboutUs') }}</h1>
 <!--          {{aboutUsCollection}}-->
           <p class="about-description">{{aboutUsCollection.description}}</p>
         </div>
@@ -30,6 +30,7 @@
   .about-us-comp {
     background-color: #fff;
     margin: 5rem 0;
+    position: relative;
   }
 
   .border {
@@ -37,9 +38,11 @@
   }
 
   .description {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1);
     padding-left: 5rem;
     padding-bottom: 3rem;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
     @media (max-width: 1080px) {
       padding-left: 2rem;
     }

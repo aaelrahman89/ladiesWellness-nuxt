@@ -3,14 +3,14 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3 col-12">
-          <SocialLinks></SocialLinks>
+          <SocialLinks :socialLinksHref="socialLinks"></SocialLinks>
         </div>
         <div class="col-lg-6 col-12 text-center">
-          <h3 class="top-title">andalusia ladies wellness</h3>
+          <h3 class="top-title">{{ $t('slogan') }}</h3>
         </div>
         <div class="col-lg-3 -col-12">
-          <div class="profile">
-            <nuxt-link :to="localePath('login')">login <i class="far fa-user"></i></nuxt-link>
+          <div class="profile d-none">
+            <a href="#">login <i class="far fa-user"></i></a>
           </div>
         </div>
       </div>
@@ -22,7 +22,8 @@
 import SocialLinks from "./SocialLinks";
 export default {
    name: 'TopHeader',
-  components: {SocialLinks}
+  components: {SocialLinks},
+  props:['socialLinks']
 }
 </script>
 
@@ -37,7 +38,8 @@ export default {
     .top-title{
       color: $mainColor;
       text-transform: capitalize;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      font-weight: bold;
       display: flex;
       justify-content: center;
       align-items: center;

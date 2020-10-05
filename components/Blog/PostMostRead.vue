@@ -10,7 +10,7 @@
         <p>
           {{postMostRead.excerpt}}
         </p>
-        <small>30 March, 2020</small>
+        <small>{{postMostRead.date}}</small>
       </div>
     </div>
     </article>
@@ -27,6 +27,7 @@ export default {
 <style lang="scss" scoped>
 img {
   height: 175px;
+  object-fit: cover;
   @media screen and (max-width: 768px) {
     height: auto;
   }

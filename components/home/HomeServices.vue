@@ -1,13 +1,16 @@
 <template>
-    <div class="container-fluid">
-       <HomeTitle title="Services" desc="At vero eos et accusamus et iusto" />
+    <div class="container">
+       <HomeTitle :title="$t('menu.services')" desc="At vero eos et accusamus et iusto" />
 
        <div>
                <swiper class="swiper" :options="swiperOption">
     <swiper-slide v-for="(service,index) in services.data" :key="index"><Service :service="service" /></swiper-slide>
-                 <div class="swiper-button-prev" slot="button-prev"></div>
-                 <div class="swiper-button-next" slot="button-next"></div>
+                 
   </swiper>
+  <div class="position-relative">
+    <div class="swiper-button-prev" slot="button-prev"></div>
+                 <div class="swiper-button-next" slot="button-next"></div>
+  </div>
        </div>
     </div>
 </template>
@@ -69,8 +72,24 @@ export default {
        color: #040404 !important;
 }
 .swiper-button-prev:after, .swiper-button-next:after {
-    font-size: 40px !important;
+    font-size: 30px !important;
     font-weight: bold;
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    left: -70px !important;
+    right: auto !important;
+    top: -250px !important;
+      @media screen and (max-width: 768px) {
+    display: none;
+    }
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+    right: -70px !important;
+    left: auto !important;
+    top: -250px !important;
+    @media screen and (max-width: 768px) {
+    display: none;
+    }
 }
 }
 

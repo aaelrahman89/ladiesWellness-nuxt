@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-    <home-title title="Events" desc="At vero eos et accusamus et iusto"></home-title>
+    <home-title :title="$t('events')" desc="At vero eos et accusamus et iusto"></home-title>
     <div class="hold-events">
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="event in HomeEvents.data" :key="event.id">
@@ -35,10 +35,6 @@
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
           },
-          pagination: {
-            el: '.swiper-pagination',
-            dynamicBullets: true
-          },
         }
       }
     },
@@ -55,9 +51,9 @@
   }
   .swiper-button-next,.swiper-button-prev{
     top: 10%;
-    left: 14%;
-    width: 35px;
-    height: 35px;
+    left: 13%;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     background-color: #fff;
     color: #040404;
@@ -73,7 +69,7 @@
       color: #fff;
     }
     &:after{
-      font-size: 20px;
+      font-size: 17px;
     }
     @media (max-width: 992px) {
       display: none;
@@ -82,5 +78,5 @@
   .swiper-button-prev{
     left: 10% !important;
   }
-  html:lang(ar){ .swiper-button-next,.swiper-button-prev{left: auto;right: 14%;} .swiper-button-prev{left: auto !important;right: 10% !important;} }
+  html:lang(ar){ .swiper-button-next,.swiper-button-prev{left: auto;right: 13%;} .swiper-button-prev{left: auto !important;right: 10% !important;} }
 </style>

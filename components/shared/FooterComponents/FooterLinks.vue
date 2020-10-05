@@ -1,7 +1,7 @@
 <template>
     <div>
         <section>
-            <h3 class="text-uppercase">LINKS</h3>
+            <h3 class="text-uppercase">{{$t('footer.links')}}</h3>
             <ul>
               <li>
                 <a href="#" target="_blank" class="text-white">Andalusia Medical Services</a>

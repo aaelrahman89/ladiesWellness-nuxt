@@ -1,5 +1,5 @@
 <template>
-<div class="bg w-100 position-relative text-center mb-5" :style="{ backgroundImage: `url(${require('@/assets/images/' + bgImg)})` }" >
+<div class="bg w-100 position-relative text-center mb-5" :style="{ backgroundImage: `url(${bgImg})` }">
     <h3 class="text-capitalize position-relative">{{ subTitle }}</h3>
     <h1 class="text-capitalize text-white position-relative">{{ title }}</h1>
   </div>
@@ -54,7 +54,7 @@ h1 {
   margin-top: 400px;
   z-index: 2;
     @media screen and (max-width: $small) {
-    font-size: 2em; 
+    font-size: 2em;
     margin-top: 100px;
   }
 }

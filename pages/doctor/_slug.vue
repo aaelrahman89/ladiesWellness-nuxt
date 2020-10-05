@@ -19,18 +19,51 @@
 <script>
   export default {
     name: "doctor_slug",
+    data() {
+      return {
+        baseUrl: ''
+      }
+    },
+    created() {
+      if(process.browser){
+        this.baseUrl = window.location.origin + window.location.pathname
+      }
+    },
+    head(){
+      return{
+        title: `${this.doctor.doctor.title}`,
+        meta:[
+          {hid:'description',name:`description`,content:`${this.doctor.doctor.meta_description}`},
+          {hid:'keywords',name:'keywords',content:`${this.doctor.doctor.meta_keywords}`},
+          {hid:'og:description',property:`og:description`,content: `${this.doctor.doctor.facebook_description}`},
+          {hid:'og:image',property:`og:image`,content: `${this.doctor.doctor.facebook_image}`},
+          {hid:'og:title',property:`og:title`,content: `${this.doctor.doctor.facebook_title}`},
+          {hid:'twitter:description',name:`twitter:description`,content: `${this.doctor.doctor.twitter_description}`},
+          {hid:'twitter:image',name:`twitter:image`,content: `${this.doctor.doctor.twitter_image}`},
+          {hid:'twitter:title',name:`twitter:title`,content: `${this.doctor.doctor.twitter_title}`}
+        ],
+        link: [
+          {
+            rel: "canonical",
+            href: this.baseUrl
+          }
+        ]
+      }
+    },
     asyncData(context) {
-      return context.$axios.get(`/doctor/${context.params.slug}?lang=${context.app.i18n.locale}`).then(res => {
+      return context.$axios.get(`/api/doctor/${context.params.slug}?lang=${context.app.i18n.locale}`).then(res => {
+        console.log(res.data);
         return {doctor: res.data}
       }).catch(error => {
         console.log(error.data);
       })
-    }
+    },
   }
 </script>
 
 <style scoped lang="scss">
   .single-doctor {
+    margin-bottom: 1rem;
     img {
       object-fit: cover;
       width: 100%;

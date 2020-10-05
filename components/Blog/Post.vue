@@ -8,7 +8,7 @@
     <p>
       {{post.excerpt}}
     </p>
-    </article> 
+    </article>
     </nuxt-link>
   </div>
 </template>
@@ -22,6 +22,7 @@ export default {
 <style lang="scss" scoped>
 img {
   height: 550px;
+  object-fit: cover;
   @media screen and (max-width: 768px) {
     height: auto;
   }

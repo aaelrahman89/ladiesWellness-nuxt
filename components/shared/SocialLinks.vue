@@ -1,19 +1,20 @@
 <template>
     <div class="hold-links">
       <ul class="social-links">
-        <li><a href="#"><i class="fas fa-phone-alt"></i></a></li>
-        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-        <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+        <li><a :href="`tel:${socialLinksHref.phone}`"><i class="fas fa-phone-alt"></i></a></li>
+        <li><a :href="socialLinksHref.twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a :href="socialLinksHref.facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a :href="socialLinksHref.instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a :href="socialLinksHref.youtube"><i class="fab fa-youtube"></i></a></li>
+        <li><a :href="socialLinksHref.whatsapp"><i class="fab fa-whatsapp"></i></a></li>
       </ul>
     </div>
 </template>
 
 <script>
     export default {
-        name: "SocialLinks"
+        name: "SocialLinks",
+      props:['socialLinksHref']
     }
 </script>
 

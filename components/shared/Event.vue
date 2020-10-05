@@ -2,9 +2,10 @@
   <div class="event">
     <div class="description-event">
       <h1 class="event-name">{{event.title}}</h1>
-      <p class="event-paragraph">Veep writers and stars have incredibly responded to the news of an Pre-installed
-        stitches are required by the method of email client, calendar.</p>
-      <nuxt-link :to="localePath(`/event/${event.slug}`)" class="btn-event-detail"><span>view more</span></nuxt-link>
+      <div class="event-paragraph">
+        <div :text-content.prop="event.small_description | cutLongString"></div>
+      </div>
+      <nuxt-link :to="localePath(`/event/${event.slug}`)" class="btn-event-detail"><span>{{$t('viewMore')}}</span></nuxt-link>
     </div>
     <div class="image-event">
 <!--      <img src="@/assets/images/event-img.png" alt="event-img" >-->
@@ -19,10 +20,15 @@
   export default {
     name: "Event",
     props: ['event'],
-    mounted() {
-      console.log("this.event");
-      console.log(this.event);
-    }
+    filters: {
+      cutLongString(value) {
+        if (value.length > 100) {
+          return value.substr(0, 65) + '...'
+        } else {
+          return value;
+        }
+      }
+    },
   }
 </script>
 
@@ -44,12 +50,10 @@
       }
       .event-paragraph {
         color: rgba(4, 4, 4, 0.76);
-        width: 75%;
         font-size: 1.3rem;
         position: relative;
         top: 2rem;
         @media (max-width: 992px) {
-          width: 100%;
           top: auto;
         }
       }
@@ -91,7 +95,7 @@
         }
       }
 
-      @media (max-width: 992px) {
+      @media (max-width: 1080px) {
         width: 100%;
         top: auto;
         text-align: center;
@@ -104,7 +108,7 @@
       display: inline-block;
       img {
         width: 100%;
-        @media (max-width: 992px) {
+        @media (max-width: 1080px) {
           width: 250px
         }
 
@@ -125,7 +129,7 @@
         &:last-of-type {
           position: relative;
           bottom: 100%;
-          transform: translate(30%, 82%);
+          transform: translate(5%, 79%);
           z-index: 3;
           @media (max-width: 992px) {
             display: none;
@@ -151,7 +155,7 @@
       position: absolute;
       z-index: 22;
       left: -26%;
-      bottom: -37%;
+      bottom: -35%;
       margin-bottom: 0;
       @media (max-width: 992px) {
         position: relative;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageTitle title="Blog" bgImg="https://picsum.photos/1920/937" />
+    <PageTitle :title="$t('menu.blog')" bgImg="blog.png" />
     <div class="container-fluid mb-5">
       <div class="row">
         <div class="col-md-7">
@@ -33,7 +33,7 @@
         </div>
 
         <div class="col-md-4 most-read">
-          <h6 class="text-capitalize mb-5 mt-1">Most Read</h6>
+          <h6 class="text-capitalize mb-5 mt-1">{{ $t('mostRead') }}</h6>
           <!--section start -->
           <section class="mb-4">
             <div v-for="(postMostRead, index) in postsMostRead.data" :key="index">
@@ -46,7 +46,7 @@
 
    <div class="row">
        <div class="col-md-12 mt-5">
-           <!--video here-->
+           <iframe width="100%" height="800" src="https://www.youtube.com/embed/FcjDBVmBDLo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
        </div>
    </div>
 
@@ -60,15 +60,20 @@ import Post from "@/components/Blog/Post";
 import PostFooter from "@/components/Blog/PostFooter";
 import PostMostRead from "@/components/Blog/PostMostRead";
 export default {
+  data(){
+     return {
+       bgImg: 'assets/images/blog.png'
+     }
+  },
   components: {
     Post,
     PostFooter,
     PostMostRead
   },
   async asyncData(context) {
-      let posts = await context.$axios.get(`posts?lang=${context.app.i18n.locale}`);
-      let postsFooter = await context.$axios.get(`posts_footer?lang=${context.app.i18n.locale}`);
-      let postsMostRead = await context.$axios.get(`posts_mostread?lang=${context.app.i18n.locale}`);
+      let posts = await context.$axios.get(`/api/posts?lang=${context.app.i18n.locale}`);
+      let postsFooter = await context.$axios.get(`/api/posts_footer?lang=${context.app.i18n.locale}`);
+      let postsMostRead = await context.$axios.get(`/api/posts_mostread?lang=${context.app.i18n.locale}`);
       return {
         posts: posts.data,
         postsFooter: postsFooter.data,
@@ -103,5 +108,8 @@ h6 {
     height: 75px;
     border-radius: 6px;
   }
+}
+h6:lang(ar){
+  text-align: right;
 }
 </style>

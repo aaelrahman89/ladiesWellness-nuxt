@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-white">
+  <footer class="text-white pl-4 pr-4">
     <div class="container-fluid">
       <!--footer start-->
       <div class="row" :style="$i18n.locale == 'ar'?'text-align:right;direction:rtl;':'text-align:left;direction:ltr;'">
@@ -18,8 +18,8 @@
         </div>
         <div class="col-md-4">
           <!--section start-->
-          <section>
-            <img src="@/assets/images/footer-logo.png" alt="klw" class="img-fluid" />
+          <section class="text-center">
+            <img src="@/assets/images/footer-logo.png" alt="klw" class="img-fluid footer-img" />
           </section>
           <!--section end-->
 
@@ -36,7 +36,9 @@
           <!--section start-->
           <section class="mt-5 text-center">
             <button class="btn btn-booknow bg-white rounded-0 position-relative">
-              <i class="fas fa-shopping-cart position-absolute text-white" :style="$i18n.locale == 'ar'?'right: -1px; left: auto;':'left: -1px; right: auto;'"></i> Book Now
+              <nuxt-link to="/book-now">
+              <i class="fas fa-shopping-cart position-absolute text-white" :style="$i18n.locale == 'ar'?'right: -1px; left: auto;':'left: -1px; right: auto;'"></i> {{$t('footer.bookNow')}}
+              </nuxt-link>
             </button>
           </section>
           <!--section end-->
@@ -103,6 +105,11 @@ footer {
       font-size: 20px;
       font-weight: 600;
       color: #666666;
+      a{
+        color: #666666;
+            border: none;
+                display: block;
+      }
         @media screen and (max-width: 768px) {
     width: 100%;
   }
@@ -123,5 +130,8 @@ footer {
       transition: all 0.9s ease 0s;
     }
   }
+}
+.footer-img{
+  width: 75%;
 }
 </style>

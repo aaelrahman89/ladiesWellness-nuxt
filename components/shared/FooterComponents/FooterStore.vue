@@ -4,7 +4,7 @@
             <ul class="d-flex">
               <li class="store font-weight-bold">
                 <a href="#" target="_blank" class="text-white">
-                  <i class="fab fa-apple"></i> Google Play
+                  <i class="fab fa-google-play"></i> Google Play
                 </a>
               </li>
               <li class="store font-weight-bold" :class="$i18n.locale == 'ar'?'mr-5':'ml-5'">

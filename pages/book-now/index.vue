@@ -1,59 +1,17 @@
 <template>
   <div>
-    <div class="about-us">
-      <img src="@/assets/images/new-letter-logo.png" alt="new-letter" class="img-fluid center-logo">
-      <div class="hold-images">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6 col-12 images-left">
-              <img src="@/assets/images/make-up.jpg" alt="about-us" class="img-fluid filtered">
-              <img src="@/assets/images/model-2.png" alt="about-us" class="img-fluid normal">
-              <img src="@/assets/images/model-face.jpg" alt="model" class="img-fluid normal-down">
-            </div>
-            <div class="col-lg-6 col-12 text-center">
-              <img src="@/assets/images/model-3.png" alt="model" class="img-fluid normal-up">
-              <img src="@/assets/images/spa.jpg" alt="model" class="img-fluid normal-right-down">
-            </div>
-            <div class="col-12">
-              <div class="text-center title about-us-title">
-                <h5 class="m-0 position-relative">Andalusia For Ladies Wellness</h5>
-                <h3 class="m-0 position-relative text-capitalize">{{$t('aboutUs')}}</h3>
-              </div>
-            </div>
-            <div class="col-12 text-center">
-              <img src="@/assets/images/black-model.png" alt="black-model" class="img-fluid img-title-up">
-              <img src="@/assets/images/white-model.jpg" alt="white-model" class="img-fluid img-title-down">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <AboutUs :aboutUsCollection="aboutUsCollection"></AboutUs>
-    <div id="contact">
+    <div>
       <ContactUs></ContactUs>
     </div>
   </div>
 </template>
 
 <script>
-  import HomeTitle from "../../components/home/shared/HomeTitle";
-  import AboutUs from "../../components/shared/AboutUs";
-  import ContactUs from "../../components/shared/ContactUs";
-  import axios from "axios";
+  import ContactUs from "@/components/shared/ContactUs";
 
   export default {
-    name: "about",
-    components: {ContactUs, AboutUs, HomeTitle},
-    asyncData(context){
-      return context.$axios.get(`/api/about_us?lang=${context.app.i18n.locale}`).then( res =>{
-        console.log("res.data");
-        console.log(res.data.data);
-        return {aboutUsCollection : res.data.data}
-      }).catch( error =>{
-        console.log("error.data");
-        console.log(error.data)
-      })
-    }
+    name: "BookNow",
+    components: {ContactUs}
   }
 </script>
 

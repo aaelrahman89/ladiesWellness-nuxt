@@ -33,8 +33,8 @@ export default {
 <style lang="scss" scoped>
 @import "assets/scss/variable";
 span {
-  position: fixed;
-  bottom: 40px;
+  position: absolute;
+  bottom: 650px;
   right: 20px;
   width: 40px;
   height: 40px;
@@ -45,5 +45,8 @@ span {
   font-size: 1.3em;
   text-align: center;
   opacity: 0.9;
+    @media screen and (max-width: 768px) {
+    bottom: 70px;
+  }
 }
 </style>
