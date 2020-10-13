@@ -1,7 +1,7 @@
 @import "variable";
 .main-header{
   padding: 0 2rem ;
-  min-height: 85px;
+  min-height: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,9 +14,12 @@
   a{
     text-decoration: none;
     color: $blackColor;
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: 1.1rem;
     .event-name{
       color: $mainColor;
+      font-weight: bold;
+      font-size: 21px;
     }
     .fa-bell{
       color: $mainColor;
@@ -36,12 +39,16 @@
         font-weight: bold;
         text-decoration: none;
         padding-bottom: .5rem;
+        transition: all ease-in-out .3s;
         .logo{
           display: flex;
           width: 60px;
           height: 60px;
           object-fit: contain;
           object-position: center;
+        }
+        &:hover{
+          color: $mainColor;
         }
       }
     }

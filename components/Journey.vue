@@ -61,4 +61,7 @@ a{
     color: #040404;
   }
 }
+.journey-box:lang(ar){
+  text-align: right;
+}
 </style>

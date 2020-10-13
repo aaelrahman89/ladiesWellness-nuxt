@@ -1,13 +1,13 @@
 <template>
   <div>
     <HomeSlider :sliders="sliders" />
-    <HomeJourney :homeJourney="homeJourney" />
-    <HomeServices :services="services"/>
-    <HomeDoctors :setDoctors="setDoctors"></HomeDoctors>
+    <HomeJourney :homeJourney="homeJourney" :title="titles.journey_subtitle"/>
+    <HomeServices :services="services" :title="titles.services_subtitle"/>
+    <HomeDoctors :setDoctors="setDoctors" :title="titles.doctors_subtitle"></HomeDoctors>
     <HomeClients :partners="partners"></HomeClients>
-    <HomeTestimonials :testimonials="testimonials"></HomeTestimonials>
-    <HomeEvent :HomeEvents="HomeEvents"></HomeEvent>
-    <HomeSellingPoints></HomeSellingPoints>
+    <HomeTestimonials :testimonials="testimonials" :title="titles.testimonials_subtitle"></HomeTestimonials>
+    <HomeEvent :HomeEvents="HomeEvents" :title="titles.events_subtitle"></HomeEvent>
+    <HomeSellingPoints :title="titles.selling_points_subtitle"></HomeSellingPoints>
   </div>
 </template>
 
@@ -72,7 +72,9 @@
       let AllEvents = await context.$axios.get(`/api/events?lang=${context.app.i18n.locale}`);
       let homeJourney = await context.$axios.get(`/api/journeys?lang=${context.app.i18n.locale}`);
       let HomeSeo = await context.$axios.get(`/api/home?lang=${context.app.i18n.locale}`);
-      console.log(AllEvents.data);
+      let HomeTitles = await context.$axios.get(`/api/sub_titles?lang=${context.app.i18n.locale}`);
+      console.log("HomeTitles.data");
+      console.log(HomeTitles.data.data);
       return {
         setDoctors: allDoctors.data.data,
         partners: allpartners.data.data,
@@ -81,12 +83,13 @@
         services: services.data,
         HomeEvents: AllEvents.data,
         homeSeo:HomeSeo.data.home,
-        homeJourney: homeJourney.data.data
+        homeJourney: homeJourney.data.data,
+        titles: HomeTitles.data.data
       }
     },
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

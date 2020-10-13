@@ -1,34 +1,56 @@
 <template>
-    <div class="fixed-social">
-      <ul>
-        <!-- <li>
-          <nuxt-link to="/about#contact" class="hold-icon">
+    <div>
+      <div class="fixed-social">
+        <ul>
+          <li>
+            <nuxt-link to="/about#contact" class="hold-icon">
             <span class="icon">
               <img src="@/assets/images/booking.png" alt="booking">
             </span>
-            <span class="des-icon">book now</span>
-          </nuxt-link>
-        </li> -->
-        <li>
-          <a :href="socialLinks.twitter" class="hold-icon">
+              <span class="des-icon">book now</span>
+            </nuxt-link>
+          </li>
+          <li>
+            <a :href="socialLinks.twitter" class="hold-icon">
             <span class="icon">
               <i class="fab fa-twitter"></i>
             </span>
-            <span class="des-icon">twitter</span>
-          </a>
-        </li>
-        <li><a :href="socialLinks.facebook" class="hold-icon"><span class="icon"><i class="fab fa-facebook-f"></i></span><span class="des-icon">facebook</span></a></li>
-        <li><a :href="socialLinks.instagram" class="hold-icon"><span class="icon"><i class="fab fa-instagram"></i></span><span class="des-icon">instagram</span></a></li>
-        <li><a :href="socialLinks.youtube" class="hold-icon"><span class="icon"><i class="fab fa-youtube"></i></span><span class="des-icon">youtube</span></a></li>
-        <li><a :href="socialLinks.whatsapp" class="hold-icon"><span class="icon"><i class="fab fa-whatsapp"></i></span><span class="des-icon">whatsapp</span></a></li>
-      </ul>
+              <span class="des-icon">twitter</span>
+            </a>
+          </li>
+          <li><a :href="socialLinks.facebook" class="hold-icon"><span class="icon"><i class="fab fa-facebook-f"></i></span><span class="des-icon">facebook</span></a></li>
+          <li><a :href="socialLinks.instagram" class="hold-icon"><span class="icon"><i class="fab fa-instagram"></i></span><span class="des-icon">instagram</span></a></li>
+          <li><a :href="socialLinks.youtube" class="hold-icon"><span class="icon"><i class="fab fa-youtube"></i></span><span class="des-icon">youtube</span></a></li>
+          <li><a :href="socialLinks.whatsapp" class="hold-icon"><span class="icon"><i class="fab fa-whatsapp"></i></span><span class="des-icon">whatsapp</span></a></li>
+        </ul>
+      </div>
+      <div class="social-mobile">
+        <ul>
+          <transition name="slide-fade">
+            <ul v-if="isShow">
+              <li><nuxt-link to="/about#contact" class="hold-icon"><span class="icon"><img src="@/assets/images/booking.png" alt="booking"></span></nuxt-link></li>
+              <li><a :href="socialLinks.twitter" class="hold-icon"><span class="icon"><i class="fab fa-twitter"></i></span></a></li>
+              <li><a :href="socialLinks.facebook" class="hold-icon"><span class="icon"><i class="fab fa-facebook-f"></i></span></a></li>
+              <li><a :href="socialLinks.instagram" class="hold-icon"><span class="icon"><i class="fab fa-instagram"></i></span></a></li>
+              <li><a :href="socialLinks.youtube" class="hold-icon"><span class="icon"><i class="fab fa-youtube"></i></span></a></li>
+              <li><a :href="socialLinks.whatsapp" class="hold-icon"><span class="icon"><i class="fab fa-whatsapp"></i></span></a></li>
+            </ul>
+          </transition>
+          <li @click="isShow = ! isShow"><span class="hold-icon"><span class="icon"><i class="fas fa-ellipsis-v"></i></span></span></li>
+        </ul>
+      </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "FixedSocial",
-      props:['socialLinks']
+      name: "FixedSocial",
+      props:['socialLinks'],
+      data(){
+        return{
+          isShow : false
+        }
+      }
     }
 </script>
 
@@ -40,6 +62,25 @@
   top: 30%;
   @media (max-width: 1080px) {
     display: none;
+  }
+}
+.social-mobile{
+  position: fixed;
+  z-index: 100;
+  right: 3%;
+  bottom: 1%;
+  display: none;
+  li{
+    right: auto;
+  }
+  .hold-icon{
+    background: transparent;
+    .icon{
+      border-radius: 50%;
+    }
+  }
+  @media (max-width: 1080px) {
+    display: block;
   }
 }
 li{
@@ -99,6 +140,13 @@ html:lang(ar){
     &:hover{
       right: auto;
       left: 0;
+    }
+  }
+  .social-mobile{
+    right: auto;
+    left: 3%;
+    li{
+      left: auto;
     }
   }
 }

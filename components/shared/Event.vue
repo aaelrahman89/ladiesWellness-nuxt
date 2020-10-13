@@ -37,13 +37,12 @@
   .event {
     width: 80%;
     margin: 0 auto;
-    min-height: 500px;
-
+    min-height: 475px;
     .description-event {
       width: 70%;
       display: inline-block;
       position: relative;
-      top: 8rem;
+      top: 5rem;
       .event-name {
         text-transform: uppercase;
         font-weight: bold;
@@ -106,6 +105,8 @@
       width: 29%;
       position: relative;
       display: inline-block;
+      margin-top: -3rem;
+      background-color: #f0f1f5;
       img {
         width: 100%;
         @media (max-width: 1080px) {
@@ -113,30 +114,36 @@
         }
 
         &:first-of-type {
-          position: absolute;
-          top: -10%;
-          left: -26%;
+          //position: absolute;
+          //top: -10%;
+          //left: -26%;
           z-index: 5;
           height: 410px;
           object-fit: cover;
+          border: 20px solid #f0f1f5;
           @media (max-width: 992px) {
             position: relative;
             top: auto;
             left: auto;
+            border: none;
           }
         }
 
         &:last-of-type {
-          position: relative;
-          bottom: 100%;
-          transform: translate(5%, 79%);
-          z-index: 3;
+          position: absolute;
+          top: 52%;
+          left: 30%;
+          z-index: -1;
+          height: 300px;
+          object-fit: contain;
           @media (max-width: 992px) {
             display: none;
           }
         }
       }
-
+      @media (max-width: 1080px) {
+        margin-top: 0;
+      }
       .event-date, .event-time {
         font-weight: bold;
       }
@@ -154,8 +161,6 @@
     .event-start {
       position: absolute;
       z-index: 22;
-      left: -26%;
-      bottom: -35%;
       margin-bottom: 0;
       @media (max-width: 992px) {
         position: relative;
@@ -182,7 +187,9 @@
             }
           }
           &:last-of-type {
-            transform: translate(-30%, 82%);
+            // transform: translate(-30%, 82%);
+            left: auto;
+            right: 30%;
           }
         }
         .event-time{

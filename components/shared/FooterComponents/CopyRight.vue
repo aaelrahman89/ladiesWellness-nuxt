@@ -2,7 +2,7 @@
     <div class="row">
              <div class="col-md-12 text-center">
                  <div class="copyright">
-            <span v-if="$i18n.locale =='en'">Copyright ©{{new Date().getFullYear()}} AndalusiaGroup. all rights reserved.</span>
+            <span v-if="$i18n.locale =='en'">All rights reserved to - Andalusia Group {{new Date().getFullYear()}} ©</span>
             <span v-if="$i18n.locale =='ar'">©{{new Date().getFullYear()}} جميع الحقوق محفوظة للأندلسية جروب</span>
     </div>
              </div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    
+
 }
 </script>
 

@@ -157,7 +157,7 @@
         font-weight: bolder;
         color: #fff;
         font-size: 6rem;
-        z-index: 22;
+        z-index: 10;
       }
       @media (max-width: 1200px) {
         margin-top: 12rem;

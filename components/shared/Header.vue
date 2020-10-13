@@ -13,7 +13,7 @@
               <ul>
                 <li><nuxt-link :to="localePath('/about')">{{ $t('menu.about') }}</nuxt-link></li>
                 <li><nuxt-link :to="localePath('/journey')">{{ $t('menu.journey') }}</nuxt-link></li>
-                <li><nuxt-link :to="localePath('/book-now')">{{ $t('footer.bookNow') }}</nuxt-link></li>
+                <li><a href="https://booking.alw-sa.com/" target="_blank">{{ $t('footer.bookNow') }}</a></li>
                 <li><nuxt-link :to="localePath('/')"><img src="@/assets/images/logo.png" alt="akw-logo" class="logo"></nuxt-link></li>
                 <li class="submenu"><a href="#">{{ $t('menu.services') }}</a>
                   <ul>
@@ -76,29 +76,57 @@
                     </ul>
                   </li>
                   <li @click="showSlide = false">
-                    <nuxt-link :to="localePath('events')">events</nuxt-link>
+                    <nuxt-link :to="localePath('events')">{{ $t('events') }}</nuxt-link>
                   </li>
                   <li @click="showSlide = false">
-                    <nuxt-link :to="localePath('/')">home</nuxt-link>
+                    <nuxt-link :to="localePath('https://booking.alw-sa.com')">{{ $t('footer.bookNow') }}</nuxt-link>
                   </li>
                   <li @click="showSlide = false">
-                    <nuxt-link :to="localePath('/about')">about us</nuxt-link>
+                    <nuxt-link :to="localePath('/about')">{{ $t('menu.about') }}</nuxt-link>
                   </li>
                   <li @click="showSlide = false">
-                    <nuxt-link :to="localePath('/journey')">journey</nuxt-link>
+                    <nuxt-link :to="localePath('/journey')">{{ $t('menu.journey') }}</nuxt-link>
+                  </li>
+                  <li v-b-toggle.collapse-1>
+                    <span>{{ $t('menu.services') }} <i class="fas fa-chevron-down ml-4 mr-4 mt-1" v-if="visible"></i> <i class="fas fa-chevron-right ml-4 mr-4 mt-1" v-if="!visible && $i18n.locale == 'en'"></i> <i class="fas fa-chevron-left ml-4 mr-4 mt-1" v-if="!visible && $i18n.locale == 'ar'"></i></span>
+                      <b-collapse id="collapse-1" class="p-0 m-0" v-model="visible">
+      <ul>
+                    <li v-for="HeaderService in HeaderServices" :key="HeaderService.id" class="pl-1 pr-1 border-0" @click="showSlide = false"><nuxt-link :to="localePath(`/service/${HeaderService.slug}`)" class="m-0 p-2"><i class="fas fa-circle"></i> {{HeaderService.name}}</nuxt-link></li>
+                  </ul>
+  </b-collapse>
                   </li>
                   <li @click="showSlide = false">
-                    <nuxt-link :to="localePath('/services')">services</nuxt-link>
+                    <nuxt-link :to="localePath('/doctors')">{{ $t('menu.doctors') }}</nuxt-link>
                   </li>
                   <li @click="showSlide = false">
-                    <nuxt-link :to="localePath('/doctors')">doctors</nuxt-link>
-                  </li>
-                  <li @click="showSlide = false">
-                    <nuxt-link :to="localePath('/blog')">blog</nuxt-link>
+                    <nuxt-link :to="localePath('/blog')">{{ $t('menu.blog') }}</nuxt-link>
                   </li>
                   <li @click="showSlide = false">
                     <nuxt-link :to="switchLocalePath('en')" v-if="this.$i18n.locale === 'ar'">English</nuxt-link>
                     <nuxt-link :to="switchLocalePath('ar')" v-if="this.$i18n.locale === 'en'">عربى</nuxt-link>
+                  </li>
+                  <li>
+                    <ul class="social-links d-flex justify-content-around">
+    <li>
+        <a :href="`tel:${socialLinks.phone}`"><i  class="fas fa-phone-alt" aria-hidden="true"></i></a>
+    </li>
+    <li>
+        <a :href="socialLinks.twitter" target="_blank"><i  class="fab fa-twitter" aria-hidden="true"></i></a>
+    </li>
+    <li>
+        <a :href="socialLinks.facebook" target="_blank"><i  class="fab fa-facebook-f" aria-hidden="true"></i></a>
+    </li>
+    <li>
+        <a :href="socialLinks.instagram" target="_blank"><i  class="fab fa-instagram" aria-hidden="true"></i></a>
+    </li>
+    <li>
+        <a :href="socialLinks.youtube" target="_blank"><i  class="fab fa-youtube" aria-hidden="true"></i></a>
+    </li>
+    <li>
+        <a :href="socialLinks.whatsapp" target="_blank"><i  class="fab fa-whatsapp" aria-hidden="true"></i></a>
+    </li>
+</ul>
+
                   </li>
                 </ul>
               </div>
@@ -117,6 +145,7 @@ export default {
   data(){
     return{
       showSlide: false,
+      visible: false
     }
   },
   methods:{
@@ -125,7 +154,7 @@ export default {
       this.$emit('showSearch',true);
     }
   },
-  props: ['HeaderServices', 'headerTopEvent'],
+  props: ['HeaderServices', 'headerTopEvent', 'socialLinks'],
   mounted() {
     window.addEventListener('scroll',function(){
       document.getElementById('header-lap');
@@ -222,7 +251,7 @@ export default {
   }
   .header-mobile{
     display: none;
-    z-index: 20;
+    z-index: 101;
     position: fixed;
     top: 0;
     right: 0;
@@ -301,6 +330,9 @@ export default {
         left: 0;
         position: fixed;
         overflow: auto;
+        .event-name{
+          font-size: 11px;
+        }
         .event-mobile{
           margin: 0;
           padding: 0;
@@ -336,7 +368,7 @@ export default {
               justify-content: flex-start;
               align-items: center;
               width: 100%;
-              margin: 1rem 0;
+              margin: 0.7rem 0;
               padding-right: .5rem;
               color: $mainColor;
               text-transform: capitalize;
@@ -384,5 +416,15 @@ export default {
       .toggle-menu { div {margin-left: auto;margin-right: 2rem;@media (max-width: 600px) {margin-left: 0;margin-right: 1.3rem;}} }
       .logo-menu-mobile { .logo { a{margin: .5rem 2rem .5rem 0; h3{margin-right: auto;margin-left: 7px;} } } .menu-mobile {margin-left: auto;margin-right: 0;left: auto;right: 0; .event-mobile{padding-left: 0;padding-right: 1rem; .fa-bell{margin-right: auto;margin-left: .3rem;} } .two-options{ .fa-user{margin-right: auto;margin-left: .3rem;} } ul { li {padding-left: 0;padding-right: 2rem; a, span {padding-right: 0;padding-left: .5rem;} } } .sub-menu { li { a, span {padding-right: 0;padding-left: 3rem;} } } } }
     }
+  }
+  .social-links{
+    li{
+      padding: 0px !important;
+      border: none !important;
+    }
+  }
+  .fa-circle{
+    font-size: 5px;
+    padding: 0px 5px;
   }
 </style>

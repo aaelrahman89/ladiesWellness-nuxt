@@ -41,5 +41,14 @@ p {
   font-size: 20px;
   font-weight: 300;
   color: #000000;
+  height: 130px;
+    overflow: hidden;
+   @media screen and (max-width: 768px) {
+    height: auto;
+    overflow: visible;
+  }
+}
+article{
+  margin-bottom: 2.4rem;
 }
 </style>

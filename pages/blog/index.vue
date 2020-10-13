@@ -45,9 +45,7 @@
       </div>
 
    <div class="row">
-       <div class="col-md-12 mt-5">
-           <iframe width="100%" height="800" src="https://www.youtube.com/embed/FcjDBVmBDLo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-       </div>
+       <div class="col-md-12 mt-5" v-html="postsVideo.blog_video"></div>
    </div>
 
     </div>
@@ -74,10 +72,12 @@ export default {
       let posts = await context.$axios.get(`/api/posts?lang=${context.app.i18n.locale}`);
       let postsFooter = await context.$axios.get(`/api/posts_footer?lang=${context.app.i18n.locale}`);
       let postsMostRead = await context.$axios.get(`/api/posts_mostread?lang=${context.app.i18n.locale}`);
+      let postsVideo = await context.$axios.get('/api/settings');
       return {
         posts: posts.data,
         postsFooter: postsFooter.data,
-        postsMostRead: postsMostRead.data
+        postsMostRead: postsMostRead.data,
+        postsVideo: postsVideo.data.settings
       }
     }
 };

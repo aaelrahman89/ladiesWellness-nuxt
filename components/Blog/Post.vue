@@ -36,11 +36,23 @@ h3 {
   font-size: 25px;
   font-weight: 300;
   color: #000000;
+  height: 30px;
+    overflow: hidden;
+       @media screen and (max-width: 768px) {
+    height: auto;
+    overflow: visible;
+  }
 }
 p {
   font-size: 17px;
   font-weight: 300;
   line-height: 1.7;
   color: #9a9a9a;
+    height: 80px;
+  overflow: hidden;
+    @media screen and (max-width: 768px) {
+    height: auto;
+    overflow: visible;
+  }
 }
 </style>

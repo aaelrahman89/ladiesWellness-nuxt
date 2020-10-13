@@ -21,7 +21,7 @@
 <script>
 export default {
           async asyncData({params, $axios, app}) {
-    let journey = await $axios.$get(`/api/journey/${params.slug}?lang=${app.i18n.locale}`);
+    let journey = await $axios.$get(`/api/journey/${encodeURIComponent(params.slug)}?lang=${app.i18n.locale}`);
     return {
       journey: journey.data
     }
@@ -37,6 +37,9 @@ img{
 h1{
   font-weight: bold;
     color: $mainColor;
+}
+h1:lang(ar), p:lang(ar){
+  text-align: right;
 }
 p{
       margin: 3rem 0;

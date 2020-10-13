@@ -1,6 +1,6 @@
 <template>
   <div class="selling-points">
-    <HomeTitle :title="$t('UniqueSellingPoints')" desc="At vero eos et accusamus et iusto"></HomeTitle>
+    <HomeTitle :title="$t('UniqueSellingPoints')" :desc="title"></HomeTitle>
     <div class="container">
       <div class="row">
         <div class="col-lg col-md-6 col-12 text-center">
@@ -38,6 +38,7 @@
 
   export default {
     name: "SellingPoints",
+    props:['title'],
     components: {HomeTitle}
   }
 </script>

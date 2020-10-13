@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-white pl-4 pr-4">
+  <footer class="text-white">
     <div class="container-fluid">
       <!--footer start-->
       <div class="row" :style="$i18n.locale == 'ar'?'text-align:right;direction:rtl;':'text-align:left;direction:ltr;'">
@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-4">
           <!--section start-->
-          <section class="text-center">
+          <section class="text-center mb-5">
             <img src="@/assets/images/footer-logo.png" alt="klw" class="img-fluid footer-img" />
           </section>
           <!--section end-->
@@ -36,9 +36,9 @@
           <!--section start-->
           <section class="mt-5 text-center">
             <button class="btn btn-booknow bg-white rounded-0 position-relative">
-              <nuxt-link to="/book-now">
+              <a href="https://booking.alw-sa.com/" target="_blank">
               <i class="fas fa-shopping-cart position-absolute text-white" :style="$i18n.locale == 'ar'?'right: -1px; left: auto;':'left: -1px; right: auto;'"></i> {{$t('footer.bookNow')}}
-              </nuxt-link>
+              </a>
             </button>
           </section>
           <!--section end-->
@@ -78,7 +78,10 @@ export default {
 <style lang="scss">
 footer {
   background-color: #000;
-  padding-top: 130px;
+  padding: 130px 3rem 0 3rem;
+  @media screen and (max-width: 768px) {
+    padding: 0.5rem;
+  }
   section {
     margin-bottom: 20px;
     h3 {

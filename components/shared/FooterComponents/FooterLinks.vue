@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mb-5">
         <section>
             <h3 class="text-uppercase">{{$t('footer.links')}}</h3>
             <ul>
@@ -33,3 +33,9 @@
           </section>
     </div>
 </template>
+
+<style lang="scss" scoped>
+  a{
+    opacity: 0.8;
+  }
+</style>

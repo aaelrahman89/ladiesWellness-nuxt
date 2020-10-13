@@ -9,17 +9,15 @@
         </div>
       </div>
       <div class="hold-doctors-items">
-        <div class="filter-items">
+
           <div class="container">
-            <swiper class="swiper" :options="swiperOption">
-              <swiper-slide>
-                <span :class="{'active-class':isActive === 0}" @click="getAllDoctors('all')" class="specialty-name">all</span>
-              </swiper-slide>
-              <swiper-slide v-for="DoctorSpecialty in doctors" :key="DoctorSpecialty.id">
+            <div class="filter-items">
+              <span :class="{'active-class':isActive === 0}" @click="getAllDoctors('all')" class="specialty-name">all</span>
+              <slot v-for="DoctorSpecialty in doctors">
                 <span :class="{'active-class':isActive === DoctorSpecialty.id}" class="specialty-name" @click="getDoctorById(DoctorSpecialty.id)">{{DoctorSpecialty.name}}</span>
-              </swiper-slide>
-            </swiper>
-          </div>
+              </slot>
+            </div>
+
         </div>
         <div class="show-doctors">
           <div v-if="!all" class="container-fluid">
@@ -48,8 +46,10 @@
                 </div>
               </nuxt-link>
             </swiper-slide>
-              <div class="swiper-pagination" slot="pagination"></div>
             </slot>
+            <div class="swiper-pagination" slot="pagination"></div>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
           </swiper>
         </div>
       </div>
@@ -102,6 +102,10 @@
             pagination: {
               el: '.swiper-pagination',
               clickable: true
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev'
             },
             breakpoints: {
               320: {
@@ -168,12 +172,17 @@
     font-size: 3rem;
     color: #d18c2f;
     top: 2rem;
+    @media (max-width: 1080px) {
+      font-size: 2rem;
+    }
   }
   h3{
     font-weight: bolder;
     color: #fff;
     font-size: 6rem;
-    z-index: 22;
+    @media (max-width: 1080px) {
+      font-size: 4rem;
+    }
   }
   @media (max-width: 1200px) {
     margin-top: 12rem;
@@ -183,7 +192,7 @@
     padding: 0 2rem;
   }
   .swiper-all-doctors {
-    height: 1297px;
+    height: 1300px;
     margin-left: auto;
     margin-right: auto;
     .hold-doctors-items{
@@ -197,7 +206,7 @@
     }
     .swiper-slide {
       height: 365px;
-      margin: 2rem 0;
+      margin-top: 3rem;
       transition:  all ease-in-out .3s;
       a{
         display: block;
@@ -211,8 +220,21 @@
       object-fit: cover;
       transition:  all ease-in-out .3s;
     }
+    .swiper-button-next,.swiper-button-prev{
+      bottom: 40px;
+      left: 55%;
+      top: auto;
+      &:after{
+        font-size: 26px;
+        font-weight: bolder;
+        color: #040404;
+      }
+    }
+    .swiper-button-prev{
+      right: 55%;
+      left: auto;
+    }
   }
-
   .doctor-background{
     height: calc(100vh - 145px);
     background: url("../../assets/images/doctor-background.jpg") fixed no-repeat;
@@ -229,20 +251,27 @@
     }
   }
   .filter-items{
-    margin: 3rem 0;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    @media (max-width: 1080px) {
+      display: block;
+    }
   }
   .active-class{
     border-bottom: 1px solid #c7843d !important;
     transition: all ease-in-out .3s;
   }
   .specialty-name{
-    display: block;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
     text-transform: capitalize;
     border-bottom: 1px solid transparent;
     padding-bottom: .5rem;
+    display: block;
+    margin: 0 1rem;
   }
   .doctor-container{
     a{
@@ -270,6 +299,12 @@
     line-height: 1.7;
     width: 90%;
   }
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+  bottom: 50px !important;
+  @media (max-width: 1080px) {
+    display: none;
+  }
+}
   html:lang(ar){
     .swiper-slide {
       a{

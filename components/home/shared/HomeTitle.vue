@@ -47,7 +47,7 @@ h5 {
   }
 }
 h3 {
-  font-size: 100px;
+  font-size: 94px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

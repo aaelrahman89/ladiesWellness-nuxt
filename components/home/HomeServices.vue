@@ -1,11 +1,11 @@
 <template>
     <div class="container">
-       <HomeTitle :title="$t('menu.services')" desc="At vero eos et accusamus et iusto" />
+       <HomeTitle :title="$t('menu.services')" :desc="title" />
 
        <div>
                <swiper class="swiper" :options="swiperOption">
     <swiper-slide v-for="(service,index) in services.data" :key="index"><Service :service="service" /></swiper-slide>
-                 
+
   </swiper>
   <div class="position-relative">
     <div class="swiper-button-prev" slot="button-prev"></div>
@@ -21,7 +21,7 @@ import Service from '@/components/Service';
 export default {
   name: 'HomeServices',
   title: 'Loop mode with multiple slides per group',
-  props: ['services'],
+  props: ['services','title'],
       data() {
       return {
         swiperOption: {
@@ -29,6 +29,7 @@ export default {
           spaceBetween: 70,
           slidesPerGroup: 3,
           loop: true,
+          loopFillGroupWithBlank: true,
           autoplay: {delay: 4000},
           pagination: {
             el: '.swiper-pagination',
@@ -78,7 +79,7 @@ export default {
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
     left: -70px !important;
     right: auto !important;
-    top: -250px !important;
+    top: -200px !important;
       @media screen and (max-width: 768px) {
     display: none;
     }
@@ -86,7 +87,7 @@ export default {
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
     right: -70px !important;
     left: auto !important;
-    top: -250px !important;
+    top: -200px !important;
     @media screen and (max-width: 768px) {
     display: none;
     }

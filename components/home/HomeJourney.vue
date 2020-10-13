@@ -1,13 +1,13 @@
 <template>
     <div>
-       <HomeTitle :title="$t('menu.journey')" desc="Lorem ipsum lorem ipsum lorem ipsum" /> 
-       
-       <div class="row m-0 position-relative">
+       <HomeTitle :title="$t('menu.journey')" :desc="title" />
+
+       <div class="row m-0 position-relative height800">
          <div class="col-md-12 p-0 m-0 d-none d-sm-block">
            <div class="journey-title"></div>
          </div>
 
-     
+
          <div class="col-md-3 col-6 p-0" v-for="journey in homeJourney" :key="journey.id">
            <nuxt-link :to="localePath(`/journey/${journey.slug}`)">
                        <div class="box text-capitalize position-relative">
@@ -24,9 +24,9 @@
          </div>
 
 
-        
+
        </div>
-       
+
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
     components: {
        HomeTitle
     },
-    props: ['homeJourney']
+    props: ['homeJourney','title']
 }
 </script>
 
@@ -68,13 +68,13 @@ export default {
   top: 0px;
   opacity: 0;
 }
-.overlay:hover ~ .desc { 
+.overlay:hover ~ .desc {
   width: 90%;
   height: 90%;
   margin: 5%;
   opacity: 1;
   transition: all 0.9s ease 0s;
-  
+
  .desc-content{
    border: 1px solid #d39138;
    width: 90%;
@@ -86,7 +86,7 @@ export default {
   font-size: 1.25em;
   font-weight: 600;
   color: #000000;
-   @media screen and (max-width: 768px) { 
+   @media screen and (max-width: 768px) {
     font-size: 1em;
      }
    }
@@ -96,7 +96,7 @@ export default {
   color: #989898;
    }
  }
-   
+
  }
  .journey-title{
      z-index: 100;
@@ -112,6 +112,12 @@ export default {
  img{
    height: 400px;
      @media screen and (max-width: 768px) {
+    height: auto;
+     }
+ }
+ .height800{
+   height: 800px;
+   @media screen and (max-width: 768px) {
     height: auto;
      }
  }

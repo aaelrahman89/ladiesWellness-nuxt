@@ -32,7 +32,7 @@ export default {
   .top-header{
     padding: 0 2rem ;
     background: $blackColor;
-    min-height: 60px;
+    min-height: 40px;
     display: flex;
     align-items: center;
     .top-title{

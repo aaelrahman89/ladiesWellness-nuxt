@@ -19,6 +19,15 @@
               <span class="event-date">{{eventDetail.date}}</span>
               <span class="event-time">{{eventDetail.time}}</span>
             </p>
+            <p class="event-social">
+                    <ul class="social-links d-flex justify-content-between w-40 mx-auto">
+        <li><a :href="eventDetail.twitter" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a :href="eventDetail.facebook" target="_blank" title="facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a :href="eventDetail.instagram" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a :href="eventDetail.youtube" target="_blank" title="youtube"><i class="fab fa-youtube"></i></a></li>
+        <li><a :href="eventDetail.whatsapp" target="_blank" title="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
+      </ul>
+            </p>
             <div class="event-description">
               <div v-html="eventDetail.description"></div>
             </div>
@@ -69,7 +78,7 @@
       }
     },
     asyncData(context){
-      return context.$axios.get(`/api/event/${context.params.slug}?lang=${context.app.i18n.locale}`).then(res =>{
+      return context.$axios.get(`/api/event/${encodeURIComponent(context.params.slug)}?lang=${context.app.i18n.locale}`).then(res =>{
         console.log(res.data);
         return {eventDetail:res.data.data}
       }).catch(error =>{
@@ -80,26 +89,52 @@
 </script>
 
 <style scoped lang="scss">
+.event-slug{
+  overflow: hidden;
+  position: relative;
+}
   .background-behind {
     height: 300px;
-
+    position: absolute;
+    left: 0;
+    right: 0;
     .background {
       background-color: rgba(255, 143, 182, 0.35);
       height: 300px;
     }
-
     @media (max-width: 992px) {
       display: none;
     }
   }
   .hold-event-info {
-    margin-top: -14rem;
     position: relative;
-
+    padding-top: 4rem;
     .img-single-event {
       width: 500px;
       height: 500px;
       object-fit: cover;
+    }
+    .event-social {
+      font-size: 1.3rem;
+      position: absolute;
+      bottom: 0;
+      left: 70%;
+      margin-bottom: .5rem;
+      a{
+        color: #000;
+        &:hover{
+          opacity: 0.8;
+        }
+      }
+      li{
+        margin: 0 5px;
+      }
+      @media (max-width: 768px) {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin: .5rem 0;
+      }
     }
 
     .event-name {
@@ -128,16 +163,15 @@
       font-weight: bold;
       font-size: 2rem;
       position: absolute;
-      top: 55%;
       left: 70%;
-      transform: translate(-50%, -50%);
       padding: .5rem 1rem;
-
+      top: 45%;
+      transform: translate(-50%, -50%);
+      margin: 0;
       .event-time {
         display: inline-block;
         margin-left: .5rem;
       }
-
       @media (max-width: 992px) {
         position: relative;
         top: auto;
@@ -151,19 +185,22 @@
       padding: 1rem;
       color: #fff;
       width: 40%;
-      top: -10%;
+      position: absolute;
+      bottom: 0;
+      left: 15%;
       z-index: 25;
-      position: relative;
       @media (max-width: 992px) {
-        top: auto;
+        bottom: auto;
         width: 100%;
         z-index: 0;
         margin-bottom: 1rem;
+        position: relative;
+        left: auto;
       }
     }
 
     @media (max-width: 992px) {
-      margin-top: 4.5rem;
+      margin-top: 0;
     }
   }
   .hold-event-images{

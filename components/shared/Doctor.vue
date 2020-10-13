@@ -59,6 +59,7 @@
       overflow-wrap: break-word;
       height: 120px;
       overflow: hidden;
+      font-size: .9rem;
     }
     @media (max-width: 1080px) {
       width: 100%;

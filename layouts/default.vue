@@ -2,20 +2,20 @@
   <div :dir="$i18n.locale == 'ar' ? 'rtl' : 'ltr'" class="position-relative">
     <ScrollToTop/>
     <TopHeader :socialLinks="footerSocial"></TopHeader>
-    <Header :HeaderServices="HeaderServices" :headerTopEvent="headerTopEvent" @showSearch="showSearch($event)"></Header>
+    <Header :HeaderServices="HeaderServices" :headerTopEvent="headerTopEvent" :socialLinks="footerSocial" @showSearch="showSearch($event)"></Header>
     <FixedSocial :socialLinks="footerSocial"></FixedSocial>
-    <div class="fixed-social opp">
-      <ul>
-        <li>
-          <nuxt-link :to="localePath(`/book-now`)" class="hold-icon">
-            <span class="des-icon">book now</span>
-            <span class="icon">
-              <img src="@/assets/images/booking.png" alt="booking">
-            </span>
-          </nuxt-link>
-        </li>
-      </ul>
-    </div>
+<!--    <div class="fixed-social opp">-->
+<!--      <ul>-->
+<!--        <li>-->
+<!--          <a href="https://booking.alw-sa.com/" target="_blank" class="hold-icon">-->
+<!--            <span class="des-icon">book now</span>-->
+<!--            <span class="icon">-->
+<!--              <img src="@/assets/images/booking.png" alt="booking">-->
+<!--            </span>-->
+<!--          </a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
     <transition name="slide-fade">
       <div class="search-page" v-if="showSearchPage">
         <span class="close" @click="showSearchPage = false"><i class="fas fa-times"></i></span>

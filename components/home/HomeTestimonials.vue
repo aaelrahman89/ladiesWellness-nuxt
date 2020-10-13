@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomeTitle :title="$t('testimonials')" desc="At vero eos et accusamus et iusto"></HomeTitle>
+    <HomeTitle :title="$t('testimonials')" :desc="title"></HomeTitle>
     <div class="testimonials">
       <img src="@/assets/images/test.png" alt="test" class="test-right">
       <swiper class="swiper" :options="swiperOption" :pagination="{ clickable: true }">
@@ -16,6 +16,7 @@
         <div class="swiper-button-next" slot="button-next"></div>
       </swiper>
       <img src="@/assets/images/test.png" alt="test" class="test-left">
+      <h4 class="caption">You said about us</h4>
     </div>
   </div>
 </template>
@@ -23,7 +24,7 @@
 <script>
   export default {
     name: "HomeTestimonials",
-    props:['testimonials'],
+    props:['testimonials','title'],
     data(){
       return{
         swiperOption: {
@@ -56,15 +57,16 @@
     align-items: center;
     .test-right{
       position: absolute;
-      right: -8%;
-      top: -32%;
-      height: 230px;
+      right: -16%;
+      top: -39%;
+      height: 337px;
+      transform: rotate(-151deg);
     }
     .test-left{
       position: absolute;
-      left: -12%;
-      bottom: -24%;
-      height: 400px;
+      left: -14%;
+      bottom: -22%;
+      height: 385px;
     }
     .hold-client{
       text-align: center;
@@ -88,25 +90,33 @@
         display: block;
       }
     }
+    .caption{
+      position: absolute;
+      bottom: 6%;
+      right: 3%;
+      font-size: 3rem;
+      color: #ffffff8f;
+      font-family: "Conv_TuesdayNight-Regular", Sans-Serif;
+    }
     @media (max-width: 992px) {
       padding: 2rem 0;
     }
     .swiper-button-next{
       color: $blackColor;
-      right: 10%;
+      right: 14%;
       outline: none;
       &:after{
-        font-size: 26px;
-        font-weight: bold;
+        font-size: 28px;
+        font-weight: bolder;
       }
     }
     .swiper-button-prev{
       color: $blackColor;
-      left: 10%;
+      left: 14%;
       outline: none;
       &:after{
-        font-size: 26px;
-        font-weight: bold;
+        font-size: 28px;
+        font-weight: bolder;
       }
     }
   }

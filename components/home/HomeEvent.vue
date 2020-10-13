@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-    <home-title :title="$t('events')" desc="At vero eos et accusamus et iusto"></home-title>
+    <home-title :title="$t('events')" :desc="title"></home-title>
     <div class="hold-events">
       <swiper class="swiper" :options="swiperOption">
         <swiper-slide v-for="event in HomeEvents.data" :key="event.id">
@@ -20,7 +20,7 @@
   export default {
     name: "HomeEvent",
     components: {Event, HomeTitle},
-    props:['HomeEvents'],
+    props:['HomeEvents','title'],
     data(){
       return{
         swiperOption: {
@@ -43,6 +43,9 @@
 
 <style scoped lang="scss">
   @import "assets/scss/variable";
+  .events{
+    overflow-x: hidden;
+  }
   .hold-events{
     background-color: #f0f1f5;
     @media (max-width: 992px) {
@@ -77,6 +80,16 @@
   }
   .swiper-button-prev{
     left: 10% !important;
+  }
+  .swiper-container{
+    overflow-y: visible !important;
+    overflow-x: hidden;
+    overflow: initial;
+    @media (max-width: 1080px) {
+      overflow-y: auto !important;
+      overflow-x: auto;
+      overflow: hidden;
+    }
   }
   html:lang(ar){ .swiper-button-next,.swiper-button-prev{left: auto;right: 13%;} .swiper-button-prev{left: auto !important;right: 10% !important;} }
 </style>

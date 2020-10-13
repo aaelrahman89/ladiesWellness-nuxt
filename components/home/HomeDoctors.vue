@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HomeTitle :title="$t('menu.doctors')" desc="At vero eos et accusamus et iusto"/>
+        <HomeTitle :title="$t('menu.doctors')" :desc="title"/>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-12" v-for="item in setDoctors" :key="item.id">
@@ -24,7 +24,7 @@
 
     export default {
         name: "HomeDoctors",
-        props: ['setDoctors'],
+        props: ['setDoctors','title'],
         components: {
             Doctor,
             HomeTitle

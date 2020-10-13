@@ -7,7 +7,7 @@
             <div class="col-md-6 p-0">
               <img :src="post.image" class="w-100" :alt="post.image_alt" :title="post.image_title"/>
             </div>
-            <div class="col-md-6 mt-5">
+            <div class="col-md-6 mt-5 post-cont">
               <small>By Janny Joe</small>
               <h3 class="mt-2">{{ post.title }}</h3>
               <p v-html="post.body"></p>
@@ -78,7 +78,7 @@ export default {
   },
   async asyncData({params, $axios, app}) {
     let post = await $axios.$get(`/api/post/${params.slug}?lang=${app.i18n.locale}`);
-    let RelatedPosts = await $axios.$get(`/api/related_topics/${params.slug}?lang=${app.i18n.locale}`);
+    let RelatedPosts = await $axios.$get(`/api/related_topics/${encodeURIComponent(params.slug)}?lang=${app.i18n.locale}`);
     return {
       post: post.data,
       RelatedPosts: RelatedPosts.data
@@ -137,5 +137,8 @@ h5 {
     display: flex !important;
     justify-content: center !important;
   }
+}
+.post-cont:lang(ar){
+  text-align: right;
 }
 </style>

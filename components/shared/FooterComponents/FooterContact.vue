@@ -25,3 +25,9 @@ export default {
   props: ['footerContactsData']
 }
 </script>
+
+<style lang="scss" scoped>
+ li{
+   opacity: 0.8;
+ }
+</style>
